@@ -76,22 +76,75 @@
 
         /* Hero Section */
         .hero {
-            height: 768px;
-			width: 1024px;
-            min-height: 700px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            background-image: url("https://i.yapx.ru/cqABg.png");
+		    height: 100vh; /* Вся высота экрана */
+		    min-height: 700px;
+		    display: flex;
+		    align-items: center;
+		    justify-content: center;
+		    position: relative;
+		    background-image: url("https://i.yapx.ru/cqABg.png");
+		    background-size: cover; /* Картинка покрывает всю область */
+		    background-position: center center; /* Центрируем изображение */
+		    background-repeat: no-repeat; /* Не повторяем изображение */
+		    background-attachment: fixed; /* Параллакс эффект (опционально) */
+		    width: 100%; /* Во всю ширину */
+		    max-width: 100%; /* Ограничиваем максимальную ширину */
+		    overflow: hidden; /* Скрываем переполнение */
         }
 
+		/* Затемнение фона для лучшей читаемости текста */
+		.hero::before {
+		    content: '';
+		    position: absolute;
+		    top: 0;
+		    left: 0;
+		    width: 100%;
+		    height: 100%;
+		    background: linear-gradient(
+		        to bottom, 
+		        rgba(0, 0, 0, 0.2) 0%, 
+		        rgba(0, 0, 0, 0.3) 50%, 
+		        rgba(0, 0, 0, 0.4) 100%
+		    );
+		    z-index: 1;
+		}
+
         .hero-content {
-            text-align: center;
-            max-width: 800px;
-            z-index: 2;
-            padding: 0 20px;
+		    text-align: center;
+		    max-width: 800px;
+		    z-index: 2; /* Поверх затемнения */
+		    padding: 0 20px;
+		    position: relative;
         }
+
+				/* Адаптивность для разных экранов */
+		@media (max-width: 1200px) {
+		    .hero {
+		        background-attachment: scroll; /* Убираем фиксацию на мобильных */
+		    }
+		}
+		
+		@media (max-width: 768px) {
+		    .hero {
+		        height: 90vh;
+		        min-height: 600px;
+		        background-position: center center;
+		    }
+		}
+		
+		@media (max-width: 576px) {
+		    .hero {
+		        height: 85vh;
+		        min-height: 500px;
+		    }
+		}
+		
+		/* Для очень высоких экранов */
+		@media (min-height: 1200px) {
+		    .hero {
+		        height: 80vh;
+		    }
+		}
 
         .hero-title {
             font-size: 4.5rem;
@@ -842,6 +895,14 @@
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
+			<h1 class="hero-title">Денис & Алина</h1>
+        
+        <!-- Фотография фона -->
+        <div class="couple-photo-container" data-aos="fade-up" data-aos-delay="300">
+            <img src="https://yapx.ru/d3aa7fe0-f9fb-4fe6-a9fb-c584c62da748" 
+                 alt="Денис и Алина" 
+                 class="couple-photo">
+        </div>
        
             <p class="hero-subtitle">Мы счастливы пригласить Вас разделить с нами радость самого важного дня в нашей жизни — нашей свадьбы, которая состоится</p>
             <div class="wedding-date">26 июня 2026</div>
@@ -1101,6 +1162,7 @@
     </script>
 </body>
 </html>
+
 
 
 
