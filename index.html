@@ -101,32 +101,45 @@
 		    position: relative;
         }
 
-				/* Адаптивность для разных экранов */
-		@media (max-width: 1200px) {
+				/* Для десктопов (широкие экраны) */
+		@media (min-width: 1025px) {
 		    .hero {
-		        background-attachment: scroll; /* Убираем фиксацию на мобильных */
-		    }
-		}
-		
-		@media (max-width: 768px) {
-		    .hero {
-		        height: 90vh;
-		        min-height: 600px;
+		        background-size: contain; /* Полное изображение без обрезки */
 		        background-position: center center;
 		    }
 		}
 		
-		@media (max-width: 576px) {
+		/* Для планшетов (768px - 1024px) */
+		@media (min-width: 768px) and (max-width: 1024px) {
 		    .hero {
-		        height: 85vh;
-		        min-height: 500px;
+		        background-size: cover; /* Заполняем экран */
+		        background-position: center center;
 		    }
 		}
 		
-		/* Для очень высоких экранов */
-		@media (min-height: 1200px) {
+		/* Для мобильных (до 767px) */
+		@media (max-width: 767px) {
 		    .hero {
-		        height: 80vh;
+		        background-size: cover;
+		        background-position: center center;
+		        min-height: 600px;
+		        background-attachment: scroll; /* Убираем фиксацию */
+		    }
+		}
+		
+		/* Для очень маленьких мобильных */
+		@media (max-width: 480px) {
+		    .hero {
+		        min-height: 550px;
+		        background-position: center center;
+		    }
+		}
+		
+		/* Для горизонтальной ориентации на мобильных */
+		@media (max-width: 767px) and (orientation: landscape) {
+		    .hero {
+		        min-height: 100vw; /* Адаптируем под ширину */
+		        background-size: cover;
 		    }
 		}
 
@@ -1138,6 +1151,7 @@
     </script>
 </body>
 </html>
+
 
 
 
