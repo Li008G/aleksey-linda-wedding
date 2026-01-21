@@ -101,11 +101,16 @@
 		    position: relative;
         }
 
-				/* Автоматическое определение лучшего размера */
-		@media (min-aspect-ratio: 16/9) {
-		    /* Широкие экраны */
+		/* Для мобильных устройств (до 768px) */
+		@media (max-width: 768px) {
 		    .hero {
-		        background-size: auto 100%; /* По высоте */
+		        background: 
+		            url("https://i.yapx.ru/crJdo.jpg") /* Новое фото для мобильных */
+		            center center / 
+		            cover 
+		            no-repeat
+		            var(--light-beige);
+		        min-height: 600px;
 		    }
 		}
 		
@@ -1132,6 +1137,7 @@
     </script>
 </body>
 </html>
+
 
 
 
