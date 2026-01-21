@@ -102,35 +102,62 @@
         }
 
 		
-		/* Для мобильных устройств (до 768px) - ПОЛНОЕ ФОТО */
-		@media (max-width: 768px) {
-		    .hero {
-		        background: 
-		            url("https://i.yapx.ru/crJdo.jpg") /* Ваше мобильное фото */
-		            center center / 
-		            contain /* ПОЛНОЕ изображение без обрезки */
-		            no-repeat
-		            var(--light-beige);
-		        height: auto; /* Авто высота */
-		        min-height: 100vh; /* Минимум весь экран */
-		        padding: 20px 0 40px; /* Отступы сверху и снизу */
-		        align-items: flex-start; /* Контент сверху */
-		    }
-		
-		@media (max-aspect-ratio: 16/9) {
-		    /* Высокие экраны */
-		    .hero {
-		        background-size: 100% auto; /* По ширине */
-		    }
-		}
-		
-		/* Мобильные переопределения */
-		@media (max-width: 767px) {
-		    .hero {
-		        background-size: cover; /* Всегда заполняем на мобильных */
-		        background-attachment: scroll;
-		    }
-		}
+				/* Планшеты (средние экраны) */
+				@media (min-width: 481px) and (max-width: 768px) {
+				    .hero {
+				        background: 
+				            url("https://i.yapx.ru/crJdo.jpg")
+				            center center / 
+				            contain 
+				            no-repeat
+				            var(--light-beige);
+				        min-height: 100vh;
+				        height: auto;
+				        padding: 40px 0 60px;
+				    }
+				    
+				    .hero-content {
+				        background: rgba(248, 244, 239, 0.85);
+				        padding: 25px;
+				        border-radius: 12px;
+				        margin: 30px auto;
+				        width: 90%;
+				        max-width: 450px;
+				    }
+				}
+				
+				/* Мобильные (маленькие экраны) */
+				@media (max-width: 480px) {
+				    .hero {
+				        background: 
+				            url("https://i.yapx.ru/crJdo.jpg")
+				            center center / 
+				            contain 
+				            no-repeat
+				            var(--light-beige);
+				        min-height: 100vh;
+				        height: auto;
+				        padding: 20px 0 40px;
+				    }
+				    
+				    /* Рассчитываем высоту под пропорции фото 4:3 */
+				    .hero::before {
+				        content: '';
+				        display: block;
+				        padding-top: 75%; /* 3/4 = 0.75 = 75% */
+				    }
+				    
+				    .hero-content {
+				        position: absolute;
+				        top: 50%;
+				        left: 50%;
+				        transform: translate(-50%, -50%);
+				        width: 85%;
+				        background: rgba(248, 244, 239, 0.9);
+				        padding: 20px;
+				        border-radius: 10px;
+				        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+				    }
 
         .hero-title {
             font-size: 4.5rem;
@@ -1140,6 +1167,7 @@
     </script>
 </body>
 </html>
+
 
 
 
