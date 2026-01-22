@@ -98,44 +98,34 @@
 
         /* Новое оформление имен - ИЗМЕНЕНО */
         .couple-names-container {
-            position: center;
             margin-bottom: 50px;
             width: 100%;
-            max-width: 600px;
+            text-align: center;
         }
 
         .alexey-text {
             font-size: 4.5rem;
             color: var(--dark-green);
-            font-family: 'Segoe print', serif;
+            font-family: 'Cormorant Garamond', serif;
             font-weight: 600;
             letter-spacing: 1px;
-            text-align: left;
-            padding-right: 150px; /* Отступ для имени Линда */
+            line-height: 1;
+            margin-bottom: 10px;
         }
 
         .linda-text {
-            position: absolute;
-            right: 0;
-            bottom: -5px;
-            font-size: 5.5rem;
+            font-size: 5rem;
             color: var(--dark-green);
             font-family: 'Cormorant Garamond', serif;
-            font-weight: 700;
-            font-style: italic;
-            letter-spacing: 2px;
-            transform: rotate(-2deg);
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-            background: linear-gradient(45deg, #013220, #024a30);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            font-weight: 600;
+            letter-spacing: 1px;
+            line-height: 1;
         }
 
         .main-photo-container {
-            max-width: 600px; /* Уменьшили размер контейнера */
+            max-width: 600px;
             width: 100%;
-            margin: 0 auto 40px; /* Уменьшили отступ снизу */
+            margin: 0 auto 30px;
             border-radius: 10px;
             overflow: hidden;
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
@@ -145,34 +135,30 @@
             width: 100%;
             height: auto;
             display: block;
-            max-height: 400px; /* Ограничиваем максимальную высоту */
-            object-fit: cover; /* Сохраняем пропорции изображения */
+            max-height: 350px;
+            object-fit: cover;
         }
 
+        /* Стрелка без фона и текста - ИЗМЕНЕНО */
         .intro-scroll-down {
             display: flex;
-            flex-direction: column;
             align-items: center;
+            justify-content: center;
             color: var(--dark-green);
             text-decoration: none;
-            font-size: 1.1rem;
-            margin-top: 20px; /* Уменьшили отступ сверху */
-            padding: 10px 20px;
-            background-color: rgba(1, 50, 32, 0.05);
-            border-radius: 25px;
-            border: 1px solid rgba(1, 50, 32, 0.2);
+            width: 50px;
+            height: 50px;
+            margin-top: 10px;
             transition: var(--transition);
         }
 
-        .intro-scroll-down:hover {
-            background-color: rgba(1, 50, 32, 0.1);
-            transform: translateY(-3px);
+        .intro-scroll-down i {
+            font-size: 2rem;
+            animation: bounce 2s infinite;
         }
 
-        .intro-scroll-down i {
-            margin-top: 5px;
-            font-size: 1.5rem;
-            animation: bounce 2s infinite;
+        .intro-scroll-down:hover {
+            transform: translateY(5px);
         }
 
         @keyframes bounce {
@@ -275,7 +261,7 @@
             }
             
             .linda-text {
-                font-size: 4.5rem;
+                font-size: 4.2rem;
             }
             
             .hero-title {
@@ -313,18 +299,12 @@
                 padding: 40px 20px;
             }
             
-            .couple-names-container {
-                max-width: 450px;
-            }
-            
             .alexey-text {
                 font-size: 3.2rem;
-                padding-right: 120px;
             }
             
             .linda-text {
-                font-size: 3.8rem;
-                bottom: -3px;
+                font-size: 3.5rem;
             }
             
             .invitation-text {
@@ -334,11 +314,11 @@
             
             .main-photo-container {
                 max-width: 400px;
-                margin-bottom: 30px;
+                margin-bottom: 25px;
             }
             
             .main-photo {
-                max-height: 300px;
+                max-height: 280px;
             }
             
             .hero-title {
@@ -372,18 +352,12 @@
         }
 
         @media (max-width: 576px) {
-            .couple-names-container {
-                max-width: 320px;
-            }
-            
             .alexey-text {
                 font-size: 2.5rem;
-                padding-right: 90px;
             }
             
             .linda-text {
-                font-size: 3rem;
-                bottom: -2px;
+                font-size: 2.8rem;
             }
             
             .hero-title {
@@ -408,16 +382,11 @@
             }
             
             .main-photo {
-                max-height: 250px;
+                max-height: 220px;
             }
             
             .rsvp-container {
                 padding: 40px 25px;
-            }
-            
-            .music-player {
-                bottom: 20px;
-                right: 20px;
             }
             
             .countdown {
@@ -440,10 +409,6 @@
                 max-width: 100%;
                 margin: 0 auto;
             }
-            
-            .story-content {
-                flex-direction: column;
-            }
         }
 
         @media (max-width: 480px) {
@@ -451,18 +416,12 @@
                 padding: 30px 15px;
             }
             
-            .couple-names-container {
-                max-width: 280px;
-            }
-            
             .alexey-text {
                 font-size: 2rem;
-                padding-right: 70px;
             }
             
             .linda-text {
-                font-size: 2.5rem;
-                bottom: -1px;
+                font-size: 2.2rem;
             }
             
             .invitation-text {
@@ -472,11 +431,11 @@
             
             .main-photo-container {
                 max-width: 280px;
-                margin-bottom: 25px;
+                margin-bottom: 20px;
             }
             
             .main-photo {
-                max-height: 200px;
+                max-height: 180px;
             }
             
             .wedding-date {
@@ -494,27 +453,7 @@
                 font-size: 0.8rem;
             }
         }
-
-        @media (max-width: 360px) {
-            .couple-names-container {
-                max-width: 250px;
-            }
-            
-            .alexey-text {
-                font-size: 1.8rem;
-                padding-right: 60px;
-            }
-            
-            .linda-text {
-                font-size: 2.2rem;
-            }
-            
-            .main-photo-container {
-                max-width: 250px;
-            }
-        }
     </style>
-    <!-- Остальные стили остаются без изменений -->
 </head>
 <body>
     <!-- Первая секция: Введение с фото -->
@@ -534,7 +473,6 @@
             </div>
             
             <a href="#main" class="intro-scroll-down" data-aos="fade-up" data-aos-delay="600">
-                <span>Подробнее</span>
                 <i class="fas fa-chevron-down"></i>
             </a>
         </div>
@@ -822,6 +760,3 @@
     </script>
 </body>
 </html>
-
-
-
