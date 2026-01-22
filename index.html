@@ -74,7 +74,7 @@
             transform: translateX(-50%);
         }
 
-        /* Первая секция (Hero Section) - ИЗМЕНЕНО */
+       /* Первая секция (Hero Section) - ИЗМЕНЕНО */
         .hero-intro {
             min-height: 100vh;
             display: flex;
@@ -90,34 +90,63 @@
         .invitation-text {
             font-size: 1.2rem;
             color: var(--text-light);
-            margin-bottom: 20px;
+            margin-bottom: 40px;
             letter-spacing: 2px;
             text-transform: uppercase;
             font-weight: 400;
         }
 
-        .couple-names {
-            font-size: 3.5rem;
-            color: var(--dark-green);
+        /* Новое оформление имен - ИЗМЕНЕНО */
+        .couple-names-container {
+            position: relative;
             margin-bottom: 50px;
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .alexey-text {
+            font-size: 4.5rem;
+            color: var(--dark-green);
             font-family: 'Cormorant Garamond', serif;
             font-weight: 600;
             letter-spacing: 1px;
+            text-align: left;
+            padding-right: 150px; /* Отступ для имени Линда */
+        }
+
+        .linda-text {
+            position: absolute;
+            right: 0;
+            bottom: -5px;
+            font-size: 5.5rem;
+            color: var(--dark-green);
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 700;
+            font-style: italic;
+            letter-spacing: 2px;
+            transform: rotate(-2deg);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            background: linear-gradient(45deg, #013220, #024a30);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .main-photo-container {
-            max-width: 800px;
+            max-width: 600px; /* Уменьшили размер контейнера */
             width: 100%;
-            margin: 0 auto 60px;
+            margin: 0 auto 40px; /* Уменьшили отступ снизу */
             border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
         }
 
         .main-photo {
             width: 100%;
             height: auto;
             display: block;
+            max-height: 400px; /* Ограничиваем максимальную высоту */
+            object-fit: cover; /* Сохраняем пропорции изображения */
         }
 
         .intro-scroll-down {
@@ -127,12 +156,22 @@
             color: var(--dark-green);
             text-decoration: none;
             font-size: 1.1rem;
-            margin-top: 30px;
+            margin-top: 20px; /* Уменьшили отступ сверху */
+            padding: 10px 20px;
+            background-color: rgba(1, 50, 32, 0.05);
+            border-radius: 25px;
+            border: 1px solid rgba(1, 50, 32, 0.2);
+            transition: var(--transition);
+        }
+
+        .intro-scroll-down:hover {
+            background-color: rgba(1, 50, 32, 0.1);
+            transform: translateY(-3px);
         }
 
         .intro-scroll-down i {
-            margin-top: 10px;
-            font-size: 1.8rem;
+            margin-top: 5px;
+            font-size: 1.5rem;
             animation: bounce 2s infinite;
         }
 
@@ -1297,6 +1336,7 @@
     </script>
 </body>
 </html>
+
 
 
 
