@@ -74,7 +74,7 @@
             transform: translateX(-50%);
         }
 
-        /* Первая секция (Hero Section) - ИЗМЕНЕНО */
+        /* Первая секция (Hero Section) */
         .hero-intro {
             min-height: 100vh;
             display: flex;
@@ -96,7 +96,6 @@
             font-weight: 400;
         }
 
-        /* Новое оформление имен - ИЗМЕНЕНО */
         .couple-names-container {
             margin-bottom: 50px;
             width: 100%;
@@ -139,7 +138,7 @@
             object-fit: cover;
         }
 
-        /* Стрелка без фона и текста - ИЗМЕНЕНО */
+        /* Стрелка центрирована */
         .intro-scroll-down {
             display: flex;
             align-items: center;
@@ -148,7 +147,7 @@
             text-decoration: none;
             width: 50px;
             height: 50px;
-            margin-top: 10px;
+            margin: 10px auto 0;
             transition: var(--transition);
         }
 
@@ -196,6 +195,7 @@
             border: 2px solid var(--dark-green);
             color: var(--dark-green);
             background-color: rgba(1, 50, 32, 0.05);
+            border-radius: 8px;
         }
 
         .hero-title {
@@ -220,6 +220,7 @@
             display: flex;
             justify-content: center;
             gap: 15px;
+            flex-wrap: wrap;
         }
 
         .countdown-item {
@@ -245,6 +246,339 @@
             margin-top: 8px;
             font-size: 0.9rem;
             color: var(--text-light);
+        }
+
+        /* Story Section */
+        .story {
+            background-color: var(--light-beige);
+        }
+
+        .story-content {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .polaroid-photo {
+            background: white;
+            padding: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            transform: rotate(-2deg);
+            width: 300px;
+            margin: 10px;
+        }
+
+        .polaroid-photo:nth-child(even) {
+            transform: rotate(2deg);
+        }
+
+        .polaroid-inner {
+            padding: 10px;
+            border: 1px solid #eee;
+        }
+
+        .polaroid-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .polaroid-caption {
+            text-align: center;
+            padding: 10px 0;
+            font-style: italic;
+            color: var(--dark-green);
+        }
+
+        /* Details Section */
+        .details-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .detail-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: var(--transition);
+            flex: 1;
+            min-width: 250px;
+            max-width: 300px;
+        }
+
+        .detail-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+        }
+
+        .detail-icon {
+            width: 70px;
+            height: 70px;
+            background: rgba(1, 50, 32, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+        }
+
+        .detail-icon i {
+            font-size: 1.8rem;
+            color: var(--dark-green);
+        }
+
+        .custom-icon-img {
+            width: 40px;
+            height: 40px;
+        }
+
+        .detail-title {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .detail-subtitle {
+            color: var(--text-light);
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+
+        .detail-time {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--dark-green);
+            margin-bottom: 5px;
+        }
+
+        .detail-place {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* Dress Code Section */
+        .dress-code {
+            background-color: var(--light-beige);
+        }
+
+        .dress-code-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .dress-code-text {
+            font-size: 1.2rem;
+            margin-bottom: 50px;
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+
+        .dress-code-visual {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+
+        .dress-item {
+            flex: 1;
+            min-width: 250px;
+            max-width: 350px;
+        }
+
+        .dress-category {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--dark-green);
+            margin-bottom: 20px;
+        }
+
+        .dress-image-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .dress-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .dress-image-container:hover .dress-image {
+            transform: scale(1.05);
+        }
+
+        .image-overlay {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .image-overlay i {
+            color: var(--dark-green);
+            font-size: 1.2rem;
+        }
+
+        .dress-type-m {
+            font-size: 1rem;
+            color: var(--text-dark);
+            line-height: 1.5;
+        }
+
+        /* RSVP Section */
+        .rsvp-container {
+            background: white;
+            border-radius: 15px;
+            padding: 50px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .rsvp-text {
+            text-align: center;
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            color: var(--text-light);
+        }
+
+        .rsvp-form {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--dark-green);
+        }
+
+        .form-group input[type="text"] {
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: 'Montserrat', sans-serif;
+            transition: var(--transition);
+        }
+
+        .form-group input[type="text"]:focus {
+            outline: none;
+            border-color: var(--dark-green);
+            box-shadow: 0 0 0 2px rgba(1, 50, 32, 0.1);
+        }
+
+        .attendance-options {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .attendance-option {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .attendance-option input[type="radio"] {
+            width: 18px;
+            height: 18px;
+        }
+
+        .submit-btn {
+            background-color: var(--dark-green);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+            margin-top: 10px;
+        }
+
+        .submit-btn:hover {
+            background-color: #002112;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #f8f9fa;
+            padding: 60px 0 30px;
+            border-top: 1px solid #eee;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: center;
+            gap: 80px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .contacts-column {
+            text-align: center;
+            min-width: 200px;
+        }
+
+        .contacts-column h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--dark-green);
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .contact-item i {
+            color: var(--dark-green);
+            font-size: 1.2rem;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #ddd;
+            color: var(--text-light);
+            font-size: 1rem;
+            line-height: 1.6;
         }
 
         /* Responsive Styles */
@@ -274,6 +608,7 @@
             
             .wedding-date {
                 font-size: 2rem;
+                padding: 18px 35px;
             }
             
             .section-title {
@@ -282,6 +617,14 @@
             
             .main-photo-container {
                 max-width: 500px;
+            }
+
+            .polaroid-photo {
+                width: 250px;
+            }
+
+            .polaroid-img {
+                height: 200px;
             }
         }
 
@@ -330,6 +673,11 @@
                 font-size: 1.4rem;
                 margin-bottom: 30px;
             }
+
+            .wedding-date {
+                font-size: 1.8rem;
+                padding: 15px 30px;
+            }
             
             .countdown {
                 gap: 10px;
@@ -348,6 +696,26 @@
             .detail-card {
                 min-width: calc(50% - 20px);
                 max-width: calc(50% - 20px);
+            }
+
+            .dress-code-visual {
+                gap: 30px;
+            }
+
+            .dress-item {
+                min-width: 220px;
+            }
+
+            .rsvp-container {
+                padding: 40px 25px;
+            }
+
+            .footer-content {
+                gap: 40px;
+            }
+
+            .section-title {
+                font-size: 2.2rem;
             }
         }
 
@@ -369,12 +737,13 @@
             }
             
             .wedding-date {
-                font-size: 1.8rem;
+                font-size: 1.6rem;
                 padding: 15px 30px;
             }
             
             .section-title {
-                font-size: 2.2rem;
+                font-size: 2rem;
+                margin-bottom: 40px;
             }
             
             .main-photo-container {
@@ -386,7 +755,7 @@
             }
             
             .rsvp-container {
-                padding: 40px 25px;
+                padding: 30px 20px;
             }
             
             .countdown {
@@ -408,6 +777,30 @@
                 min-width: 100%;
                 max-width: 100%;
                 margin: 0 auto;
+            }
+
+            .dress-code-visual {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .dress-item {
+                min-width: 100%;
+                max-width: 300px;
+            }
+
+            .dress-image {
+                height: 250px;
+            }
+
+            .attendance-options {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 30px;
             }
         }
 
@@ -439,8 +832,16 @@
             }
             
             .wedding-date {
-                font-size: 1.6rem;
+                font-size: 1.4rem;
                 padding: 12px 25px;
+            }
+
+            .hero-title {
+                font-size: 2.2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
             }
             
             .countdown-number {
@@ -451,6 +852,27 @@
             
             .countdown-label {
                 font-size: 0.8rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .polaroid-photo {
+                width: 220px;
+            }
+
+            .polaroid-img {
+                height: 180px;
+            }
+
+            .rsvp-container {
+                padding: 25px 15px;
+            }
+
+            .submit-btn {
+                padding: 12px 25px;
+                font-size: 1rem;
             }
         }
     </style>
