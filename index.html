@@ -74,7 +74,7 @@
             transform: translateX(-50%);
         }
 
-        /* Первая секция (Hero Section) */
+        /* Первая секция (Hero Section) - ИЗМЕНЕНО */
         .hero-intro {
             min-height: 100vh;
             display: flex;
@@ -90,74 +90,50 @@
         .invitation-text {
             font-size: 1.2rem;
             color: var(--text-light);
-            margin-bottom: 40px;
+            margin-bottom: 20px;
             letter-spacing: 2px;
             text-transform: uppercase;
             font-weight: 400;
         }
 
-        .couple-names-container {
+        .couple-names {
+            font-size: 3.5rem;
+            color: var(--dark-green);
             margin-bottom: 50px;
-            width: 100%;
-            text-align: center;
-        }
-
-        .alexey-text {
-            font-size: 4.5rem;
-            color: var(--dark-green);
             font-family: 'Cormorant Garamond', serif;
             font-weight: 600;
             letter-spacing: 1px;
-            line-height: 1;
-            margin-bottom: 10px;
-        }
-
-        .linda-text {
-            font-size: 5rem;
-            color: var(--dark-green);
-            font-family: 'Cormorant Garamond', serif;
-            font-weight: 600;
-            letter-spacing: 1px;
-            line-height: 1;
         }
 
         .main-photo-container {
-            max-width: 600px;
+            max-width: 800px;
             width: 100%;
-            margin: 0 auto 30px;
+            margin: 0 auto 60px;
             border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
         }
 
         .main-photo {
             width: 100%;
             height: auto;
             display: block;
-            max-height: 350px;
-            object-fit: cover;
         }
 
-        /* Стрелка центрирована */
         .intro-scroll-down {
             display: flex;
+            flex-direction: column;
             align-items: center;
-            justify-content: center;
             color: var(--dark-green);
             text-decoration: none;
-            width: 50px;
-            height: 50px;
-            margin: 10px auto 0;
-            transition: var(--transition);
+            font-size: 1.1rem;
+            margin-top: 30px;
         }
 
         .intro-scroll-down i {
-            font-size: 2rem;
+            margin-top: 10px;
+            font-size: 1.8rem;
             animation: bounce 2s infinite;
-        }
-
-        .intro-scroll-down:hover {
-            transform: translateY(5px);
         }
 
         @keyframes bounce {
@@ -166,7 +142,7 @@
             60% {transform: translateY(-5px);}
         }
 
-        /* Вторая секция (Main Content) */
+        /* Вторая секция (Main Content) - ИЗМЕНЕНО */
         .main-content {
             padding: 100px 0;
             background-color: white;
@@ -195,7 +171,6 @@
             border: 2px solid var(--dark-green);
             color: var(--dark-green);
             background-color: rgba(1, 50, 32, 0.05);
-            border-radius: 8px;
         }
 
         .hero-title {
@@ -220,7 +195,6 @@
             display: flex;
             justify-content: center;
             gap: 15px;
-            flex-wrap: wrap;
         }
 
         .countdown-item {
@@ -248,221 +222,220 @@
             color: var(--text-light);
         }
 
-        /* Story Section */
-        .story {
-            background-color: var(--light-beige);
+        /* Our Story Section */
+        .story-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
         }
 
-        .story-content {
+        .story-text {
+            flex: 1;
+            min-width: 300px;
+            padding: 20px;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: var(--text-light);
+        }
+
+        .story-photos {
+            flex: 1;
+            min-width: 300px;
             display: flex;
             justify-content: center;
             gap: 30px;
-            flex-wrap: wrap;
+            padding: 20px;
         }
 
-        .polaroid-photo {
-            background: white;
-            padding: 15px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            transform: rotate(-2deg);
-            width: 300px;
-            margin: 10px;
+        .photo-container {
+            width: 420px;
         }
 
-        .polaroid-photo:nth-child(even) {
-            transform: rotate(2deg);
-        }
-
-        .polaroid-inner {
-            padding: 10px;
-            border: 1px solid #eee;
-        }
-
-        .polaroid-img {
+        .photo {
             width: 100%;
-            height: 250px;
+            height: 320px;
             object-fit: cover;
-            display: block;
+            border-radius: 5px;
+            box-shadow: 0 10px 30px var(--shadow);
+            transition: var(--transition);
         }
 
-        .polaroid-caption {
+        .photo:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .photo-caption {
             text-align: center;
-            padding: 10px 0;
-            font-style: italic;
+            margin-top: 15px;
+            font-weight: 500;
             color: var(--dark-green);
         }
 
-        /* Details Section */
+        /* Wedding Details Section */
         .details-container {
             display: flex;
+            flex-wrap: wrap;
             justify-content: center;
             gap: 30px;
-            flex-wrap: wrap;
         }
 
         .detail-card {
-            background: white;
-            border-radius: 15px;
-            padding: 30px;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-            transition: var(--transition);
             flex: 1;
             min-width: 250px;
-            max-width: 300px;
+            max-width: 280px;
+            background-color: var(--light-beige);
+            padding: 35px 25px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px var(--shadow);
+            text-align: center;
+            transition: var(--transition);
         }
 
         .detail-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
         }
 
         .detail-icon {
-            width: 70px;
-            height: 70px;
-            background: rgba(1, 50, 32, 0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
-        }
-
-        .detail-icon i {
-            font-size: 1.8rem;
+            font-size: 2.8rem;
             color: var(--dark-green);
-        }
-
-        .custom-icon-img {
-            width: 40px;
-            height: 40px;
+            margin-bottom: 20px;
         }
 
         .detail-title {
-            font-size: 1.5rem;
-            margin-bottom: 10px;
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+            line-height: 1.3;
         }
 
         .detail-subtitle {
+            font-size: 1.1rem;
             color: var(--text-light);
             margin-bottom: 15px;
-            font-size: 0.95rem;
+            font-style: italic;
         }
 
         .detail-time {
-            font-size: 1.2rem;
-            font-weight: 600;
+            font-size: 1.4rem;
+            margin-bottom: 10px;
             color: var(--dark-green);
-            margin-bottom: 5px;
+            font-weight: 600;
         }
 
         .detail-place {
-            color: var(--text-light);
-            font-size: 0.9rem;
+            font-size: 1.1rem;
+            color: var(--text-dark);
+            line-height: 1.5;
         }
 
         /* Dress Code Section */
-        .dress-code {
-            background-color: var(--light-beige);
-        }
-
         .dress-code-content {
-            max-width: 900px;
-            margin: 0 auto;
             text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
         }
 
         .dress-code-text {
             font-size: 1.2rem;
             margin-bottom: 50px;
             color: var(--text-light);
-            line-height: 1.8;
         }
 
         .dress-code-visual {
             display: flex;
-            justify-content: center;
-            gap: 50px;
             flex-wrap: wrap;
+            justify-content: center;
+            gap: 60px;
+            margin-top: 40px;
         }
 
         .dress-item {
             flex: 1;
             min-width: 250px;
-            max-width: 350px;
+            text-align: center;
         }
 
-        .dress-category {
-            font-size: 1.3rem;
-            font-weight: 600;
-            color: var(--dark-green);
-            margin-bottom: 20px;
+        .dress-icon {
+            width: 180px;
+            height: 180px;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        .dress-image-container {
-            position: relative;
-            overflow: hidden;
-            border-radius: 10px;
-            margin-bottom: 15px;
-        }
-
-        .dress-image {
+        .female-icon, .male-icon {
             width: 100%;
-            height: 300px;
-            object-fit: cover;
-            transition: var(--transition);
-        }
-
-        .dress-image-container:hover .dress-image {
-            transform: scale(1.05);
-        }
-
-        .image-overlay {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: white;
-            width: 40px;
-            height: 40px;
+            height: 100%;
+            background-color: var(--light-beige);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            position: relative;
         }
 
-        .image-overlay i {
+        .female-icon::before, .male-icon::before {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 150px;
+            background-color: var(--dark-green);
+            border-radius: 40px;
+        }
+
+        .female-icon::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
+            border-bottom: 30px solid var(--dark-green);
+            top: -10px;
+            transform: rotate(45deg);
+        }
+
+        .male-icon::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 30px;
+            background-color: var(--dark-green);
+            top: -10px;
+            border-radius: 5px;
+        }
+
+        .dress-label {
+            font-size: 1.3rem;
+            font-weight: 600;
             color: var(--dark-green);
-            font-size: 1.2rem;
-        }
-
-        .dress-type-m {
-            font-size: 1rem;
-            color: var(--text-dark);
-            line-height: 1.5;
         }
 
         /* RSVP Section */
         .rsvp-container {
-            background: white;
-            border-radius: 15px;
-            padding: 50px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-            max-width: 600px;
+            max-width: 700px;
             margin: 0 auto;
+            background-color: var(--light-beige);
+            padding: 50px 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px var(--shadow);
         }
 
         .rsvp-text {
             text-align: center;
-            font-size: 1.1rem;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
+            font-size: 1.2rem;
             color: var(--text-light);
         }
 
         .rsvp-form {
             display: flex;
             flex-direction: column;
-            gap: 25px;
+            gap: 20px;
         }
 
         .form-group {
@@ -476,85 +449,105 @@
             color: var(--dark-green);
         }
 
-        .form-group input[type="text"] {
-            padding: 12px 15px;
+        .form-group input, 
+        .form-group select, 
+        .form-group textarea {
+            padding: 15px;
             border: 1px solid #ddd;
-            border-radius: 8px;
-            font-size: 1rem;
+            border-radius: 5px;
             font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
             transition: var(--transition);
         }
 
-        .form-group input[type="text"]:focus {
+        .form-group input:focus, 
+        .form-group select:focus, 
+        .form-group textarea:focus {
             outline: none;
             border-color: var(--dark-green);
-            box-shadow: 0 0 0 2px rgba(1, 50, 32, 0.1);
+            box-shadow: 0 0 0 2px rgba(1, 50, 32, 0.2);
         }
 
         .attendance-options {
             display: flex;
-            gap: 30px;
             flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 5px;
         }
 
         .attendance-option {
-            display: flex;
-            align-items: center;
-            gap: 10px;
+            flex: 1;
+            min-width: 150px;
         }
 
         .attendance-option input[type="radio"] {
-            width: 18px;
-            height: 18px;
+            display: none;
+        }
+
+        .attendance-option label {
+            display: block;
+            padding: 12px;
+            text-align: center;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .attendance-option input[type="radio"]:checked + label {
+            border-color: var(--dark-green);
+            background-color: rgba(1, 50, 32, 0.1);
+            font-weight: 600;
         }
 
         .submit-btn {
+            padding: 18px;
             background-color: var(--dark-green);
             color: white;
             border: none;
-            padding: 15px 30px;
-            font-size: 1.1rem;
-            border-radius: 8px;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            font-weight: 600;
             cursor: pointer;
             transition: var(--transition);
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 500;
             margin-top: 10px;
         }
 
         .submit-btn:hover {
-            background-color: #002112;
+            background-color: #024a30;
             transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
 
         /* Footer */
         footer {
-            background-color: #f8f9fa;
+            background-color: var(--dark-green);
+            color: white;
             padding: 60px 0 30px;
-            border-top: 1px solid #eee;
         }
 
         .footer-content {
             display: flex;
-            justify-content: center;
-            gap: 80px;
-            margin-bottom: 40px;
             flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 40px;
+            margin-bottom: 40px;
         }
 
         .contacts-column {
-            text-align: center;
-            min-width: 200px;
+            flex: 1;
+            min-width: 250px;
+            text-align: center !important;
         }
 
         .contacts-column h3 {
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-            color: var(--dark-green);
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            color: white;
         }
 
         .contact-info {
+            text-align: center;
             display: flex;
             flex-direction: column;
             gap: 15px;
@@ -563,22 +556,48 @@
         .contact-item {
             display: flex;
             align-items: center;
+            gap: 15px;
             justify-content: center;
-            gap: 10px;
         }
 
         .contact-item i {
-            color: var(--dark-green);
-            font-size: 1.2rem;
+            font-size: 1.3rem;
+            width: 30px;
         }
 
         .copyright {
             text-align: center;
             padding-top: 30px;
-            border-top: 1px solid #ddd;
-            color: var(--text-light);
-            font-size: 1rem;
-            line-height: 1.6;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 1.1rem;
+        }
+
+        /* Music Player */
+        .music-player {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+        }
+
+        .music-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: var(--dark-green);
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: var(--transition);
+        }
+
+        .music-btn:hover {
+            transform: scale(1.1);
         }
 
         /* Responsive Styles */
@@ -590,12 +609,8 @@
         }
 
         @media (max-width: 992px) {
-            .alexey-text {
-                font-size: 3.8rem;
-            }
-            
-            .linda-text {
-                font-size: 4.2rem;
+            .couple-names {
+                font-size: 3rem;
             }
             
             .hero-title {
@@ -608,23 +623,20 @@
             
             .wedding-date {
                 font-size: 2rem;
-                padding: 18px 35px;
             }
             
             .section-title {
                 font-size: 2.5rem;
             }
             
-            .main-photo-container {
-                max-width: 500px;
+            .detail-card {
+                min-width: 200px;
+                max-width: 220px;
+                padding: 30px 20px;
             }
-
-            .polaroid-photo {
-                width: 250px;
-            }
-
-            .polaroid-img {
-                height: 200px;
+            
+            .detail-title {
+                font-size: 1.4rem;
             }
         }
 
@@ -639,29 +651,20 @@
             
             .hero-intro {
                 min-height: auto;
-                padding: 40px 20px;
+                padding: 60px 20px;
             }
             
-            .alexey-text {
-                font-size: 3.2rem;
-            }
-            
-            .linda-text {
-                font-size: 3.5rem;
+            .couple-names {
+                font-size: 2.5rem;
+                margin-bottom: 40px;
             }
             
             .invitation-text {
                 font-size: 1rem;
-                margin-bottom: 30px;
             }
             
             .main-photo-container {
-                max-width: 400px;
-                margin-bottom: 25px;
-            }
-            
-            .main-photo {
-                max-height: 280px;
+                margin-bottom: 40px;
             }
             
             .hero-title {
@@ -673,10 +676,20 @@
                 font-size: 1.4rem;
                 margin-bottom: 30px;
             }
-
-            .wedding-date {
-                font-size: 1.8rem;
-                padding: 15px 30px;
+            
+            .story-photos {
+                flex-direction: column;
+                align-items: center;
+                gap: 40px;
+            }
+            
+            .photo-container {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .photo {
+                height: 280px;
             }
             
             .countdown {
@@ -697,35 +710,11 @@
                 min-width: calc(50% - 20px);
                 max-width: calc(50% - 20px);
             }
-
-            .dress-code-visual {
-                gap: 30px;
-            }
-
-            .dress-item {
-                min-width: 220px;
-            }
-
-            .rsvp-container {
-                padding: 40px 25px;
-            }
-
-            .footer-content {
-                gap: 40px;
-            }
-
-            .section-title {
-                font-size: 2.2rem;
-            }
         }
 
         @media (max-width: 576px) {
-            .alexey-text {
-                font-size: 2.5rem;
-            }
-            
-            .linda-text {
-                font-size: 2.8rem;
+            .couple-names {
+                font-size: 2.2rem;
             }
             
             .hero-title {
@@ -737,25 +726,21 @@
             }
             
             .wedding-date {
-                font-size: 1.6rem;
+                font-size: 1.8rem;
                 padding: 15px 30px;
             }
             
             .section-title {
-                font-size: 2rem;
-                margin-bottom: 40px;
-            }
-            
-            .main-photo-container {
-                max-width: 320px;
-            }
-            
-            .main-photo {
-                max-height: 220px;
+                font-size: 2.2rem;
             }
             
             .rsvp-container {
-                padding: 30px 20px;
+                padding: 40px 25px;
+            }
+            
+            .music-player {
+                bottom: 20px;
+                right: 20px;
             }
             
             .countdown {
@@ -778,70 +763,28 @@
                 max-width: 100%;
                 margin: 0 auto;
             }
-
-            .dress-code-visual {
+            
+            .story-content {
                 flex-direction: column;
-                align-items: center;
-            }
-
-            .dress-item {
-                min-width: 100%;
-                max-width: 300px;
-            }
-
-            .dress-image {
-                height: 250px;
-            }
-
-            .attendance-options {
-                flex-direction: column;
-                gap: 15px;
-            }
-
-            .footer-content {
-                flex-direction: column;
-                gap: 30px;
             }
         }
 
         @media (max-width: 480px) {
             .hero-intro {
-                padding: 30px 15px;
+                padding: 40px 15px;
             }
             
-            .alexey-text {
-                font-size: 2rem;
-            }
-            
-            .linda-text {
-                font-size: 2.2rem;
+            .couple-names {
+                font-size: 1.8rem;
             }
             
             .invitation-text {
                 font-size: 0.9rem;
-                margin-bottom: 25px;
-            }
-            
-            .main-photo-container {
-                max-width: 280px;
-                margin-bottom: 20px;
-            }
-            
-            .main-photo {
-                max-height: 180px;
             }
             
             .wedding-date {
-                font-size: 1.4rem;
+                font-size: 1.6rem;
                 padding: 12px 25px;
-            }
-
-            .hero-title {
-                font-size: 2.2rem;
-            }
-
-            .hero-subtitle {
-                font-size: 1.1rem;
             }
             
             .countdown-number {
@@ -853,27 +796,202 @@
             .countdown-label {
                 font-size: 0.8rem;
             }
+        }
+    </style>
+    <style>
+        /* Стили для нового оформления дресс-кода */
+        .dress-category {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--dark-green);
+            text-align: center;
+            margin-bottom: 15px;
+            font-family: 'Cormorant Garamond', serif;
+            position: relative;
+            padding-bottom: 10px;
+        }
 
-            .section-title {
-                font-size: 1.8rem;
+        .dress-category::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 2px;
+            background-color: var(--dark-green);
+            opacity: 0.5;
+        }
+
+        .dress-image-container {
+            position: relative;
+            width: 200px;
+            height: 290px;
+            margin: 0 auto 20px;
+            border-radius: 3%;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            border: 5px solid var(--light-beige);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .dress-image-container:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .dress-image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: transform 0.5s ease;
+        }
+
+        .dress-image-container:hover .dress-image {
+            transform: scale(1.1);
+        }
+
+        .image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(1, 50, 32, 0.3), rgba(1, 50, 32, 0.1));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .image-overlay i {
+            font-size: 3rem;
+            color: white;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .dress-image-container:hover .image-overlay {
+            opacity: 1;
+        }
+
+        .dress-type {
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: var(--text-dark);
+            text-align: center;
+            margin-top: 10px;
+            line-height: 1.4;
+            max-width: 250px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .dress-category {
+                font-size: 1.6rem;
             }
-
-            .polaroid-photo {
-                width: 220px;
+            
+            .dress-image-container {
+                width: 150px;
+                height: 210px;
             }
-
-            .polaroid-img {
-                height: 180px;
+            
+            .dress-type {
+                font-size: 1.1rem;
             }
-
-            .rsvp-container {
-                padding: 25px 15px;
+            
+            .dress-type-m {
+                font-size: 1.1rem;
             }
+        }
 
-            .submit-btn {
-                padding: 12px 25px;
+        @media (max-width: 576px) {
+            .dress-code-visual {
+                gap: 40px;
+            }
+            
+            .dress-category {
+                font-size: 1.4rem;
+            }
+            
+            .dress-image-container {
+                width: 140px;
+                height: 190px;
+            }
+            
+            .dress-type {
                 font-size: 1rem;
+                max-width: 200px;
             }
+        }
+    </style>
+    <style>
+        .polaroid-photo {
+            margin: 30px auto 40px;
+            transform: rotate(-2deg);
+            transition: transform 0.3s ease;
+            display: inline-block;
+        }
+
+        .polaroid-photo:hover {
+            transform: rotate(0deg) scale(1.05);
+        }
+
+        .polaroid-inner {
+            background: white;
+            padding: 15px 15px 50px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            border-radius: 2px;
+            display: inline-block;
+        }
+
+        .polaroid-img {
+            width: 400px;
+            height: 440px;
+            object-fit: cover;
+            display: block;
+            filter: sepia(0.1);
+        }
+
+        .polaroid-caption {
+            text-align: center;
+            margin-top: 15px;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            color: var(--dark-green);
+            font-style: italic;
+        }
+        
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .polaroid-img {
+                width: 300px;
+                height: 330px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .story-content {
+                flex-direction: column;
+            }
+            
+            .polaroid-photo {
+                margin: 20px auto;
+            }
+            
+            .polaroid-img {
+                width: 250px;
+                height: 275px;
+            }
+        }
+        
+        .custom-icon-img {
+            width: 70px;
+            height: 70px;
+            object-fit: contain;
+            filter: brightness(0) saturate(100%) invert(8%) sepia(85%) saturate(900%) hue-rotate(110deg) brightness(98%) contrast(89%);
         }
     </style>
 </head>
@@ -882,11 +1000,7 @@
     <section class="hero-intro" id="intro">
         <div class="container">
             <p class="invitation-text" data-aos="fade-up">Приглашение на свадьбу</p>
-            
-            <div class="couple-names-container" data-aos="fade-up" data-aos-delay="200">
-                <div class="alexey-text">Алексей и</div>
-                <div class="linda-text">Линда</div>
-            </div>
+            <h1 class="couple-names" data-aos="fade-up" data-aos-delay="200">Алексей и Линда</h1>
             
             <div class="main-photo-container" data-aos="fade-up" data-aos-delay="400">
                 <img src="https://static6.tgstat.ru/channels/_0/3d/3d10e7cc7916c5e42000215b83e94d44.jpg" 
@@ -895,6 +1009,7 @@
             </div>
             
             <a href="#main" class="intro-scroll-down" data-aos="fade-up" data-aos-delay="600">
+                <span>Подробнее</span>
                 <i class="fas fa-chevron-down"></i>
             </a>
         </div>
