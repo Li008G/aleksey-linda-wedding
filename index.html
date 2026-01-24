@@ -82,57 +82,11 @@
     align-items: center;
     justify-content: center;
     position: relative;
+    background-color: white;
     padding: 20px;
     text-align: center;
-    overflow: hidden;
-    background-color: white; /* Белый фон на случай, если картинка не загрузится */
+    overflow: hidden; /* Защита от возможного выхода за границы */
 }
-
-/* Фоновый узор с цветами */
-.hero-intro::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: url('https://i.yapx.ru/crJdo.jpg');
-    /* background-repeat: repeat-x; /* Повтор только по горизонтали */
-    background-position: center;
-    background-size: auto 100%; /* Высота на всю секцию, ширина auto */
-    opacity: 1; /* Полная непрозрачность */
-    z-index: 0;
-}
-
-/* Градиенты по бокам для плавного перехода */
-.hero-intro::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(
-        to right,
-        white 0%,
-        transparent 15%,
-        transparent 85%,
-        white 100%
-    );
-    z-index: 1;
-}*/
-
-/* Контейнер для контента */
-.hero-intro .container {
-    position: relative;
-    z-index: 2;
-    background-color: rgba(255, 255, 255, 0.85); /* Легкий белый фон для читаемости */
-    padding: 30px 40px;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    max-width: 800px;
-    width: 90%;
-}*/
 
 .invitation-text {
     font-size: 1.1rem;
@@ -155,183 +109,44 @@
 
 .main-photo-container {
     max-width: 600px;
-    width: 100%;
-    margin: 0 auto 30px;
-    border-radius: 10px;
+    width: 90%; /* Изменено с 100% на 90% для адаптивности */
+    margin: 0 auto 30px; /* Уменьшено снизу */
+    border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
-    max-height: calc(100vh - 350px);
-    position: relative;
-    z-index: 2;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+    max-height: calc(100vh - 300px); /* Ограничение по высоте */
 }
 
 .main-photo {
     width: 100%;
     height: auto;
     display: block;
-    max-height: 350px;
+    max-height: 350px; /* Фиксированная максимальная высота */
     object-fit: cover;
 }
 
-.intro-scroll-down {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: var(--dark-green);
-    text-decoration: none;
-    font-size: 1.1rem;
-    margin-top: 30px;
-    position: relative;
-    z-index: 2;
-    background-color: rgba(255, 255, 255, 0.9);
-    padding: 10px 20px;
-    border-radius: 25px;
-    transition: var(--transition);
-}
+        .intro-scroll-down {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: var(--dark-green);
+            text-decoration: none;
+            font-size: 1.1rem;
+            margin-top: 30px;
+        }
 
-.intro-scroll-down:hover {
-    background-color: white;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    transform: translateY(-3px);
-}
+        .intro-scroll-down i {
+            margin-top: 10px;
+            font-size: 1.8rem;
+            animation: bounce 2s infinite;
+        }
 
-.intro-scroll-down i {
-    margin-top: 5px;
-    font-size: 1.8rem;
-    animation: bounce 2s infinite;
-}
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+            40% {transform: translateY(-10px);}
+            60% {transform: translateY(-5px);}
+        }
 
-@keyframes bounce {
-    0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
-    40% {transform: translateY(-10px);}
-    60% {transform: translateY(-5px);}
-}
-
-/* Адаптивность для разных устройств */
-@media (max-width: 1200px) {
-    .hero-intro::before {
-        background-size: contain; /* Изменяем для лучшего отображения */
-    }
-}
-
-@media (max-width: 992px) {
-    .couple-names {
-        font-size: 2.5rem;
-    }
-    
-    .hero-intro .container {
-        padding: 25px 30px;
-        width: 95%;
-    }
-}
-
-@media (max-width: 768px) {
-    .hero-intro {
-        min-height: 90vh;
-        padding: 15px;
-    }
-    
-    .hero-intro::before {
-        background-size: cover; /* На мобильных покрываем весь фон */
-    }
-    
-    .hero-intro::after {
-        background: linear-gradient(
-            to right,
-            white 0%,
-            transparent 10%,
-            transparent 90%,
-            white 100%
-        );
-    }
-    
-    .hero-intro .container {
-        padding: 20px;
-        width: 100%;
-        background-color: rgba(255, 255, 255, 0.9); /* Более плотный фон */
-    }
-    
-    .invitation-text {
-        font-size: 1rem;
-    }
-    
-    .couple-names {
-        font-size: 2.2rem;
-        margin-bottom: 20px;
-    }
-    
-    .main-photo-container {
-        max-width: 450px;
-        margin-bottom: 20px;
-        max-height: calc(100vh - 280px);
-    }
-    
-    .main-photo {
-        max-height: 250px;
-    }
-    
-    .intro-scroll-down {
-        font-size: 1rem;
-        margin-top: 20px;
-        padding: 8px 16px;
-    }
-}
-
-@media (max-width: 576px) {
-    .couple-names {
-        font-size: 1.8rem;
-    }
-    
-    .hero-intro .container {
-        padding: 15px;
-    }
-    
-    .main-photo-container {
-        max-width: 350px;
-        margin-bottom: 15px;
-        max-height: calc(100vh - 250px);
-    }
-    
-    .main-photo {
-        max-height: 200px;
-    }
-    
-    .intro-scroll-down {
-        font-size: 0.9rem;
-        padding: 6px 12px;
-    }
-    
-    .intro-scroll-down i {
-        font-size: 1.5rem;
-    }
-}
-
-/* Для очень высоких экранов */
-@media (min-height: 900px) {
-    .hero-intro::before {
-        background-size: contain; /* Сохраняем пропорции на высоких экранах */
-    }
-}
-
-/* Для горизонтальной ориентации на мобильных */
-@media (max-height: 600px) and (orientation: landscape) {
-    .hero-intro {
-        min-height: 120vh; /* Увеличиваем высоту */
-    }
-    
-    .couple-names {
-        font-size: 2rem;
-        margin-bottom: 15px;
-    }
-    
-    .main-photo-container {
-        max-height: calc(100vh - 200px);
-    }
-    
-    .main-photo {
-        max-height: 200px;
-    }
-}
         /* Вторая секция (Main Content) - ИЗМЕНЕНО */
         .main-content {
             padding: 100px 0;
@@ -1486,9 +1301,6 @@
     </script>
 </body>
 </html>
-
-
-
 
 
 
