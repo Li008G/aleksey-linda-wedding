@@ -76,27 +76,28 @@
         }
 
         /* Первая секция (Hero Section) - ИЗМЕНЕНО */
+
 .hero-intro {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;;
+    justify-content: center;
     position: relative;
     background-color: white;
-    padding: 20px;
+    padding: 40px 20px;
     text-align: center;
     overflow: hidden;
 }
 
-/* Левая нижняя картинка */
+/* Левая нижняя картинка - уменьшен размер */
 .hero-intro::after {
     content: '';
     position: absolute;
     bottom: 0;
     left: 0;
-    width: 450px;
-    height: 450px;
+    width: 300px; /* Уменьшено с 450px */
+    height: 300px; /* Уменьшено с 450px */
     background-image: url('https://i.yapx.ru/cunVH.jpg');
     background-repeat: no-repeat;
     background-position: left bottom;
@@ -105,14 +106,14 @@
     opacity: 1;
 }
 
-/* Правая верхняя картинка */
+/* Правая верхняя картинка - уменьшен размер */
 .hero-intro::before {
     content: '';
     position: absolute;
     top: 0;
     right: 0;
-    width: 450px;
-    height: 450px;
+    width: 300px; /* Уменьшено с 450px */
+    height: 300px; /* Уменьшено с 450px */
     background-image: url('https://i.yapx.ru/cunW7.jpg');
     background-repeat: no-repeat;
     background-position: right top;
@@ -126,15 +127,16 @@
     position: relative;
     z-index: 2;
     max-width: 850px;
-    width: 85%;
+    width: 100%;
     margin: 0 auto;
+    padding: 0 20px;
 }
 
 .invitation-text {
     font-size: 1.1rem;
     color: var(--text-light);
-    margin-top: 60px; 
     margin-bottom: 60px;
+    margin-top: -30px; /* Поднимаем текст выше */
     letter-spacing: 1.5px;
     text-transform: uppercase;
     font-weight: 400;
@@ -143,7 +145,7 @@
 .couple-names {
     font-size: 4rem;
     color: var(--dark-green);
-    margin-bottom: 30px;
+    margin-bottom: 40px;
     font-family: 'Great Vibes', cursive;
     font-weight: 400;
     letter-spacing: 1px;
@@ -178,22 +180,14 @@
     color: var(--dark-green);
     text-decoration: none;
     font-size: 1.1rem;
-    margin-top: 100px;
+    margin-top: 40px;
     position: relative;
     z-index: 2;
-    /* Убраны все свойства белого фона: */
-    /* background-color: rgba(255, 255, 255, 0.95); */
-    /* padding: 12px 25px; */
-    /* border-radius: 30px; */
-    /* border: 1px solid rgba(1, 50, 32, 0.1); */
     transition: var(--transition);
 }
 
 .intro-scroll-down:hover {
-    /* Убраны эффекты, связанные с белым фоном: */
-    /* background-color: white; */
-    /* box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12); */
-    transform: translateY(5px); /* Оставил только движение вниз */
+    transform: translateY(5px);
 }
 
 .intro-scroll-down i {
@@ -209,64 +203,60 @@
 }
 
 /* Адаптивность */
-/*Большие экраны*/
+/* Большие экраны */
 @media (max-width: 1200px) {
     .hero-intro::after {
-        width: 350px;
-        height: 350px;
+        width: 250px;
+        height: 250px;
     }
     
     .hero-intro::before {
-        width: 350px;
-        height: 350px;
+        width: 250px;
+        height: 250px;
     }
 }
 
-/*Ноутбуки и небольшие десктопы*/
+/* Ноутбуки и небольшие десктопы */
 @media (max-width: 992px) {
     .hero-intro::after {
-        width: 280px;
-        height: 280px;
+        width: 200px;
+        height: 200px;
     }
     
     .hero-intro::before {
-        width: 280px;
-        height: 280px;
+        width: 200px;
+        height: 200px;
     }
     
     .hero-intro .container {
-        width: 90%;
+        width: 100%;
     }
     
     .couple-names {
-        font-size: 2.5rem;
+        font-size: 3.5rem;
     }
 }
 
-/*Смартфоны большого размера*/
+/* Планшеты и большие телефоны */
 @media (max-width: 768px) {
     .hero-intro {
         min-height: 90vh;
-        padding: 15px;
+        padding: 30px 15px;
     }
     
     .hero-intro::after {
-        width: 200px;
-        height: 200px;
+        width: 150px;
+        height: 150px;
     }
     
     .hero-intro::before {
-        width: 200px;
-        height: 200px;
-    }
-    
-    .hero-intro .container {
-        width: 95%;
+        width: 150px;
+        height: 150px;
     }
     
     .couple-names {
-        font-size: 2.2rem;
-        margin-bottom: 25px;
+        font-size: 2.8rem;
+        margin-bottom: 30px;
     }
     
     .main-photo-container {
@@ -279,30 +269,31 @@
     }
     
     .intro-scroll-down {
+        margin-top: 30px;
         font-size: 1rem;
-        margin-top: 25px;
+    }
+    
+    .invitation-text {
+        margin-bottom: 40px;
+        margin-top: -20px;
     }
 }
 
-/*Смартфоны среднего размера*/
+/* Средние телефоны */
 @media (max-width: 576px) {
     .hero-intro::after {
-        width: 180px;
-        height: 180px;
+        width: 120px;
+        height: 120px;
     }
     
     .hero-intro::before {
-        width: 180px;
-        height: 180px;
-    }
-    
-    .hero-intro .container {
-        width: 100%;
+        width: 120px;
+        height: 120px;
     }
     
     .couple-names {
-        font-size: 2rem;
-        margin-bottom: 20px;
+        font-size: 2.5rem;
+        margin-bottom: 25px;
     }
     
     .main-photo-container {
@@ -315,8 +306,9 @@
         max-height: 220px;
     }
     
-    .intro-scroll-down {
-        font-size: 0.95rem;
+    .invitation-text {
+        font-size: 1rem;
+        margin-bottom: 30px;
     }
     
     .intro-scroll-down i {
@@ -324,20 +316,24 @@
     }
 }
 
-/*Смартфоны маленького размера*/
+/* Маленькие телефоны */
 @media (max-width: 480px) {
+    .hero-intro {
+        padding: 20px 15px;
+    }
+    
     .hero-intro::after {
-        width: 150px;
-        height: 150px;
+        width: 100px;
+        height: 100px;
     }
     
     .hero-intro::before {
-        width: 150px;
-        height: 150px;
+        width: 100px;
+        height: 100px;
     }
     
     .couple-names {
-        font-size: 1.8rem;
+        font-size: 2.2rem;
     }
     
     .main-photo-container {
@@ -354,20 +350,20 @@
     }
 }
 
-/* Для очень маленьких экранов */
+/* Очень маленькие экраны */
 @media (max-width: 360px) {
     .hero-intro::after {
-        width: 120px;
-        height: 120px;
+        width: 80px;
+        height: 80px;
     }
     
     .hero-intro::before {
-        width: 120px;
-        height: 120px;
+        width: 80px;
+        height: 80px;
     }
     
     .couple-names {
-        font-size: 1.6rem;
+        font-size: 2rem;
     }
     
     .main-photo-container {
@@ -375,33 +371,56 @@
     }
 }
 
-/* Для горизонтальной ориентации на мобильных */
+/* Горизонтальная ориентация на мобильных */
 @media (max-height: 600px) and (orientation: landscape) {
     .hero-intro {
         min-height: 120vh;
+        padding: 20px;
     }
     
     .hero-intro::after {
-        width: 120px;
-        height: 120px;
+        width: 100px;
+        height: 100px;
     }
     
     .hero-intro::before {
-        width: 120px;
-        height: 120px;
+        width: 100px;
+        height: 100px;
     }
     
     .couple-names {
-        font-size: 1.8rem;
-        margin-bottom: 15px;
+        font-size: 2rem;
+        margin-bottom: 20px;
     }
     
     .main-photo-container {
-        max-height: calc(100vh - 220px);
+        max-height: calc(100vh - 200px);
     }
     
     .main-photo {
         max-height: 180px;
+    }
+    
+    .invitation-text {
+        margin-bottom: 20px;
+        margin-top: -10px;
+    }
+    
+    .intro-scroll-down {
+        margin-top: 20px;
+    }
+}
+
+/* Особый случай для очень широких экранов */
+@media (min-width: 1600px) {
+    .hero-intro::after {
+        width: 350px;
+        height: 350px;
+    }
+    
+    .hero-intro::before {
+        width: 350px;
+        height: 350px;
     }
 }
         /* Вторая секция (Main Content) - ИЗМЕНЕНО */
@@ -1557,6 +1576,7 @@
     </script>
 </body>
 </html>
+
 
 
 
