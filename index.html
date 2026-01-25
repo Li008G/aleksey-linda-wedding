@@ -29,7 +29,6 @@
 
         html {
             scroll-behavior: smooth;
-            height: 100%;
         }
 
         body {
@@ -38,7 +37,6 @@
             line-height: 1.6;
             background-color: #fff;
             overflow-x: hidden;
-            min-height: 100%;
         }
 
         h1, h2, h3, h4 {
@@ -76,55 +74,56 @@
             transform: translateX(-50%);
         }
 
-        /* Первая секция (Hero Section) - ИСПРАВЛЕНО */
-        .hero-intro {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            background-color: white;
-            padding: 20px;
-            text-align: center;
-            overflow: hidden;
-        }
+        /* Первая секция (Hero Section) - ИЗМЕНЕНО */
+.hero-intro {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background-color: white;
+    padding: 20px;
+    text-align: center;
+    overflow: hidden; /* Защита от возможного выхода за границы */
+}
 
-        .invitation-text {
-            font-size: 1.1rem;
-            color: var(--text-light);
-            margin-bottom: 15px;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            font-weight: 400;
-        }
+.invitation-text {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    margin-bottom: 15px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-weight: 400;
+}
 
-        .couple-names {
-            font-size: 3.5rem;
-            color: var(--dark-green);
-            margin-bottom: 30px;
-            font-family: 'Cormorant Garamond', serif;
-            font-weight: 600;
-            letter-spacing: 1px;
-            line-height: 1.1;
-        }
+.couple-names {
+    font-size: 3rem;
+    color: var(--dark-green);
+    margin-bottom: 30px;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    letter-spacing: 1px;
+    line-height: 1.1;
+}
 
-        .main-photo-container {
-            max-width: 600px;
-            width: 90%;
-            margin: 0 auto 30px;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
-        }
+.main-photo-container {
+    max-width: 600px;
+    width: 90%; /* Изменено с 100% на 90% для адаптивности */
+    margin: 0 auto 30px; /* Уменьшено снизу */
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+    max-height: calc(100vh - 300px); /* Ограничение по высоте */
+}
 
-        .main-photo {
-            width: 100%;
-            height: auto;
-            display: block;
-            max-height: 400px;
-            object-fit: cover;
-        }
+.main-photo {
+    width: 100%;
+    height: auto;
+    display: block;
+    max-height: 350px; /* Фиксированная максимальная высота */
+    object-fit: cover;
+}
 
         .intro-scroll-down {
             display: flex;
@@ -148,13 +147,10 @@
             60% {transform: translateY(-5px);}
         }
 
-        /* Вторая секция (Main Content) - ИСПРАВЛЕНО */
+        /* Вторая секция (Main Content) - ИЗМЕНЕНО */
         .main-content {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
+            padding: 100px 0;
             background-color: white;
-            padding: 40px 0;
         }
 
         .hero-content {
@@ -162,7 +158,6 @@
             max-width: 800px;
             margin: 0 auto;
             padding: 0 20px;
-            width: 100%;
         }
 
         .hero-subtitle {
@@ -341,10 +336,10 @@
             line-height: 1.5;
         }
 
-        /* Dress Code Section - УВЕЛИЧЕНЫ ИЗОБРАЖЕНИЯ */
+        /* Dress Code Section */
         .dress-code-content {
             text-align: center;
-            max-width: 900px;
+            max-width: 800px;
             margin: 0 auto;
         }
 
@@ -358,13 +353,13 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 80px;
+            gap: 60px;
             margin-top: 40px;
         }
 
         .dress-item {
             flex: 1;
-            min-width: 280px;
+            min-width: 250px;
             text-align: center;
         }
 
@@ -616,10 +611,6 @@
                 min-width: 220px;
                 max-width: 250px;
             }
-            
-            .dress-code-visual {
-                gap: 60px;
-            }
         }
 
         @media (max-width: 992px) {
@@ -652,10 +643,6 @@
             .detail-title {
                 font-size: 1.4rem;
             }
-            
-            .dress-code-visual {
-                gap: 50px;
-            }
         }
 
         @media (max-width: 768px) {
@@ -664,13 +651,12 @@
             }
             
             .main-content {
-                padding: 40px 0;
-                min-height: auto;
+                padding: 80px 0;
             }
             
             .hero-intro {
-                min-height: 100vh;
-                padding: 40px 20px;
+                min-height: auto;
+                padding: 60px 20px;
             }
             
             .couple-names {
@@ -729,14 +715,6 @@
                 min-width: calc(50% - 20px);
                 max-width: calc(50% - 20px);
             }
-            
-            .dress-code-visual {
-                gap: 40px;
-            }
-            
-            .dress-item {
-                min-width: 250px;
-            }
         }
 
         @media (max-width: 576px) {
@@ -794,20 +772,11 @@
             .story-content {
                 flex-direction: column;
             }
-            
-            .dress-code-visual {
-                flex-direction: column;
-                gap: 50px;
-            }
-            
-            .dress-item {
-                min-width: 100%;
-            }
         }
 
         @media (max-width: 480px) {
             .hero-intro {
-                padding: 30px 15px;
+                padding: 40px 15px;
             }
             
             .couple-names {
@@ -832,14 +801,10 @@
             .countdown-label {
                 font-size: 0.8rem;
             }
-            
-            .main-photo {
-                max-height: 300px;
-            }
         }
     </style>
     <style>
-        /* Стили для нового оформления дресс-кода - УВЕЛИЧЕНЫ РАЗМЕРЫ */
+        /* Стили для нового оформления дресс-кода */
         .dress-category {
             font-size: 1.8rem;
             font-weight: 600;
@@ -865,8 +830,8 @@
 
         .dress-image-container {
             position: relative;
-            width: 220px;
-            height: 320px;
+            width: 200px;
+            height: 290px;
             margin: 0 auto 20px;
             border-radius: 3%;
             overflow: hidden;
@@ -922,32 +887,28 @@
             text-align: center;
             margin-top: 10px;
             line-height: 1.4;
-            max-width: 280px;
+            max-width: 250px;
             margin-left: auto;
             margin-right: auto;
         }
 
-        /* Адаптивность для изображений дресс-кода */
-        @media (max-width: 992px) {
-            .dress-image-container {
-                width: 200px;
-                height: 290px;
-            }
-        }
-
+        /* Адаптивность */
         @media (max-width: 768px) {
             .dress-category {
                 font-size: 1.6rem;
             }
             
             .dress-image-container {
-                width: 180px;
-                height: 260px;
+                width: 150px;
+                height: 210px;
             }
             
             .dress-type {
                 font-size: 1.1rem;
-                max-width: 250px;
+            }
+            
+            .dress-type-m {
+                font-size: 1.1rem;
             }
         }
 
@@ -961,8 +922,8 @@
             }
             
             .dress-image-container {
-                width: 160px;
-                height: 230px;
+                width: 140px;
+                height: 190px;
             }
             
             .dress-type {
@@ -1043,16 +1004,16 @@
     <!-- Первая секция: Введение с фото -->
     <section class="hero-intro" id="intro">
         <div class="container">
-            <p class="invitation-text" data-aos="fade-up" data-aos-easing="ease-out-cubic">Приглашение на свадьбу</p>
-            <h1 class="couple-names" data-aos="fade-up" data-aos-delay="200" data-aos-easing="ease-out-back">Алексей и Линда</h1>
+            <p class="invitation-text" data-aos="fade-up">Приглашение на свадьбу</p>
+            <h1 class="couple-names" data-aos="fade-up" data-aos-delay="200">Алексей и Линда</h1>
             
-            <div class="main-photo-container" data-aos="zoom-in" data-aos-delay="400" data-aos-duration="800">
+            <div class="main-photo-container" data-aos="fade-up" data-aos-delay="400">
                 <img src="https://static6.tgstat.ru/channels/_0/3d/3d10e7cc7916c5e42000215b83e94d44.jpg" 
                      alt="Алексей и Линда" 
                      class="main-photo">
             </div>
             
-            <a href="#main" class="intro-scroll-down" data-aos="fade-up" data-aos-delay="600" data-aos-easing="ease-in-out">
+            <a href="#main" class="intro-scroll-down" data-aos="fade-up" data-aos-delay="600">
                 <i class="fas fa-chevron-down"></i>
             </a>
         </div>
@@ -1060,32 +1021,30 @@
 
     <!-- Вторая секция: Основной контент -->
     <section class="main-content" id="main">
-        <div class="container">
-            <div class="hero-content" data-aos="fade-up" data-aos-duration="1000" data-aos-anchor-placement="top-bottom">
-                <p class="hero-subtitle" data-aos="fade-left" data-aos-delay="200">Мы счастливы пригласить Вас разделить с нами радость самого важного дня в нашей жизни — нашей свадьбы, которая состоится</p>
-                <div class="wedding-date" data-aos="zoom-in" data-aos-delay="300">26 июня 2026</div>
-                <h1 class="hero-title" data-aos="flip-up" data-aos-delay="400">Алексей & Линда</h1>
-                
-                <!-- Countdown Timer -->
-                <div class="countdown-container" data-aos="fade-up" data-aos-delay="500">
-                    <div class="countdown-title">До нашей свадьбы осталось:</div>
-                    <div class="countdown" id="countdown">
-                        <div class="countdown-item" data-aos="fade-down" data-aos-delay="600">
-                            <div class="countdown-number" id="days">00</div>
-                            <div class="countdown-label">дней</div>
-                        </div>
-                        <div class="countdown-item" data-aos="fade-down" data-aos-delay="650">
-                            <div class="countdown-number" id="hours">00</div>
-                            <div class="countdown-label">часов</div>
-                        </div>
-                        <div class="countdown-item" data-aos="fade-down" data-aos-delay="700">
-                            <div class="countdown-number" id="minutes">00</div>
-                            <div class="countdown-label">минут</div>
-                        </div>
-                        <div class="countdown-item" data-aos="fade-down" data-aos-delay="750">
-                            <div class="countdown-number" id="seconds">00</div>
-                            <div class="countdown-label">секунд</div>
-                        </div>
+        <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
+            <p class="hero-subtitle">Мы счастливы пригласить Вас разделить с нами радость самого важного дня в нашей жизни — нашей свадьбы, которая состоится</p>
+            <div class="wedding-date">26 июня 2026</div>
+            <h1 class="hero-title">Алексей & Линда</h1>
+            
+            <!-- Countdown Timer -->
+            <div class="countdown-container" data-aos="fade-up" data-aos-delay="300">
+                <div class="countdown-title">До нашей свадьбы осталось:</div>
+                <div class="countdown" id="countdown">
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="days">00</div>
+                        <div class="countdown-label">дней</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="hours">00</div>
+                        <div class="countdown-label">часов</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="minutes">00</div>
+                        <div class="countdown-label">минут</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="seconds">00</div>
+                        <div class="countdown-label">секунд</div>
                     </div>
                 </div>
             </div>
@@ -1095,9 +1054,8 @@
     <!-- Our Story Section -->
     <section class="story" id="story">
         <div class="container">
-            <h2 class="section-title" data-aos="fade-up">Наша история</h2>
             <div class="story-content">
-                <div class="polaroid-photo" data-aos="flip-left" data-aos-delay="200">
+                <div class="polaroid-photo" data-aos="fade-up" data-aos-delay="300">
                     <div class="polaroid-inner">
                         <img src="https://i.yapx.ru/cjV0y.jpg" 
                              alt="Фото" 
@@ -1105,7 +1063,7 @@
                         <div class="polaroid-caption">Алексей & Линда</div>
                     </div>
                 </div>         
-                <div class="polaroid-photo" data-aos="flip-right" data-aos-delay="400">
+                <div class="polaroid-photo" data-aos="fade-up" data-aos-delay="300">
                     <div class="polaroid-inner">
                         <img src="https://i.yapx.ru/cjiN9.jpg" 
                              alt="Фото" 
@@ -1120,10 +1078,10 @@
     <!-- Wedding Details Section -->
     <section class="details" id="details">
         <div class="container">
-            <h2 class="section-title" data-aos="zoom-out">План мероприятия</h2>
+            <h2 class="section-title" data-aos="fade-up">План мероприятия</h2>
             <div class="details-container">
                 <!-- Блок 1: Выкуп невесты -->
-                <div class="detail-card" data-aos="fade-up" data-aos-delay="100" data-aos-easing="ease-in-sine">
+                <div class="detail-card" data-aos="fade-up" data-aos-delay="100">
                     <div class="detail-icon">
                         <i class="fas fa-heart"></i>
                     </div>
@@ -1134,7 +1092,7 @@
                 </div>
                 
                 <!-- Блок 2: Церемония бракосочетания -->
-                <div class="detail-card" data-aos="fade-up" data-aos-delay="200" data-aos-easing="ease-in-sine">
+                <div class="detail-card" data-aos="fade-up" data-aos-delay="200">
                     <div class="detail-icon">
                         <img src="https://i.yapx.ru/cjnLz.png" alt="Иконка" class="custom-icon-img">
                     </div>
@@ -1145,7 +1103,7 @@
                 </div>
                 
                 <!-- Блок 3: Фотосессия с молодоженами -->
-                <div class="detail-card" data-aos="fade-up" data-aos-delay="300" data-aos-easing="ease-in-sine">
+                <div class="detail-card" data-aos="fade-up" data-aos-delay="300">
                     <div class="detail-icon">
                         <i class="fas fa-camera"></i>
                     </div>
@@ -1156,7 +1114,7 @@
                 </div>
                 
                 <!-- Блок 4: Банкет -->
-                <div class="detail-card" data-aos="fade-up" data-aos-delay="400" data-aos-easing="ease-in-sine">
+                <div class="detail-card" data-aos="fade-up" data-aos-delay="400">
                     <div class="detail-icon">
                         <i class="fas fa-glass-cheers"></i>
                     </div>
@@ -1174,9 +1132,9 @@
         <div class="container">
             <h2 class="section-title" data-aos="fade-up">Дресс-код</h2>
             <div class="dress-code-content">
-                <p class="dress-code-text" data-aos="fade-up" data-aos-delay="100">Для создания гармонии в наших фотографиях и атмосфере праздника, мы будем рады, если вы поддержите цветовую палитру нашего дня.</p>
+                <p class="dress-code-text" data-aos="fade-up">Для создания гармонии в наших фотографиях и атмосфере праздника, мы будем рады, если вы поддержите цветовую палитру нашего дня.</p>
                 <div class="dress-code-visual">
-                    <div class="dress-item" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="dress-item" data-aos="fade-right" data-aos-delay="200">
                         <div class="dress-category">Женщины</div>
                         <div class="dress-image-container">
                             <img src="https://i.yapx.ru/cjXcj.png" 
@@ -1186,10 +1144,10 @@
                                 <i class="fas fa-check-circle"></i>
                             </div>
                         </div>
-                        <div class="dress-type">Платье/костюм в зеленых тонах</div>
+                        <div class="dress-type-m">Платье/костюм в зеленых тонах</div>
                     </div>
     
-                    <div class="dress-item" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="dress-item" data-aos="fade-left" data-aos-delay="400">
                         <div class="dress-category">Мужчины</div>
                         <div class="dress-image-container">
                             <img src="https://i.yapx.ru/cjfCQ.png" 
@@ -1199,7 +1157,7 @@
                                 <i class="fas fa-check-circle"></i>
                             </div>
                         </div>
-                        <div class="dress-type">Классический костюм/рубашка, брюки и галстук в зеленых тонах</div>
+                        <div class="dress-type-m">Классический костюм/рубашка, брюки и галстук в зеленых тонах</div>
                     </div>
                 </div>
             </div>
@@ -1209,15 +1167,15 @@
     <!-- RSVP Section -->
     <section class="rsvp" id="rsvp">
         <div class="container">
-            <h2 class="section-title" data-aos="fade-down">Будем ждать вашего ответа!</h2>
-            <div class="rsvp-container" data-aos="flip-up" data-aos-delay="200">
+            <h2 class="section-title" data-aos="fade-up">Будем ждать вашего ответа!</h2>
+            <div class="rsvp-container" data-aos="fade-up" data-aos-delay="200">
                 <p class="rsvp-text">Пожалуйста, подтвердите ваше присутствие до <strong>1 Мая 2026</strong></p>
                 <form class="rsvp-form" id="rsvpForm">
-                    <div class="form-group" data-aos="fade-right" data-aos-delay="300">
+                    <div class="form-group">
                         <label for="name">Имя и Фамилия *</label>
                         <input type="text" id="name" name="name" required>
                     </div>
-                    <div class="form-group" data-aos="fade-left" data-aos-delay="400">
+                    <div class="form-group">
                         <label>Вы сможете присутствовать? *</label>
                         <div class="attendance-options">
                             <div class="attendance-option">
@@ -1230,7 +1188,7 @@
                             </div>
                         </div>
                     </div>
-                    <button type="submit" class="submit-btn" data-aos="zoom-in" data-aos-delay="500">Отправить ответ</button>
+                    <button type="submit" class="submit-btn">Отправить ответ</button>
                 </form>
             </div>
         </div>
@@ -1240,7 +1198,7 @@
     <footer>
         <div class="container">
             <div class="footer-content">
-                <div class="contacts-column" data-aos="slide-right" data-aos-delay="200">
+                <div class="contacts-column" data-aos="fade-up" data-aos-delay="200">
                     <h3>Линда</h3>
                     <div class="contact-info">
                         <div class="contact-item">
@@ -1253,7 +1211,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="contacts-column" data-aos="slide-left" data-aos-delay="400">
+                <div class="contacts-column" data-aos="fade-up" data-aos-delay="400">
                     <h3>Алексей</h3>
                     <div class="contact-info">
                         <div class="contact-item">
@@ -1267,7 +1225,7 @@
                     </div>
                 </div>
             </div>
-            <div class="copyright" data-aos="fade-up" data-aos-delay="600">
+            <div class="copyright" data-aos="fade-up">
                 Алексей и Линда <br> 2026
             </div>
         </div>
@@ -1276,14 +1234,11 @@
     <!-- Scripts -->
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
-        // Initialize AOS (Animate On Scroll) с различными анимациями
+        // Initialize AOS (Animate On Scroll)
         AOS.init({
             duration: 800,
             once: true,
-            offset: 100,
-            easing: 'ease',
-            delay: 0,
-            anchorPlacement: 'top-bottom'
+            offset: 100
         });
 
         // Countdown Timer
@@ -1323,23 +1278,29 @@
             this.reset();
         });
 
-        // Smooth scroll to section
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                if(targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if(targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop,
-                        behavior: 'smooth'
-                    });
+        // Lazy loading for images
+        document.addEventListener("DOMContentLoaded", function() {
+            const images = document.querySelectorAll('img');
+            
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src;
+                        imageObserver.unobserve(img);
+                    }
+                });
+            });
+            
+            images.forEach(img => {
+                if (img.dataset.src) {
+                    imageObserver.observe(img);
                 }
             });
         });
     </script>
 </body>
 </html>
+
+
+
