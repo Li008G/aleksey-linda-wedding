@@ -50,6 +50,8 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
+            position: relative;
+            z-index: 2;
         }
 
         section {
@@ -74,56 +76,96 @@
             transform: translateX(-50%);
         }
 
-        /* Первая секция (Hero Section) - ИЗМЕНЕНО */
-.hero-intro {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    background-color: white;
-    padding: 20px;
-    text-align: center;
-    overflow: hidden; /* Защита от возможного выхода за границы */
-}
+        /* Стили для декоративных элементов */
+        .deco {
+            position: absolute;
+            z-index: 1;
+            pointer-events: none;
+            user-select: none;
+        }
 
-.invitation-text {
-    font-size: 1.1rem;
-    color: var(--text-light);
-    margin-bottom: 15px;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    font-weight: 400;
-}
+        .deco img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
 
-.couple-names {
-    font-size: 3rem;
-    color: var(--dark-green);
-    margin-bottom: 30px;
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 600;
-    letter-spacing: 1px;
-    line-height: 1.1;
-}
+        .deco--bottom-left {
+            bottom: 0;
+            left: 0;
+        }
 
-.main-photo-container {
-    max-width: 600px;
-    width: 90%; /* Изменено с 100% на 90% для адаптивности */
-    margin: 0 auto 30px; /* Уменьшено снизу */
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
-    max-height: calc(100vh - 300px); /* Ограничение по высоте */
-}
+        .deco--top-right {
+            top: 0;
+            right: 0;
+        }
 
-.main-photo {
-    width: 100%;
-    height: auto;
-    display: block;
-    max-height: 350px; /* Фиксированная максимальная высота */
-    object-fit: cover;
-}
+        .deco--top-left {
+            top: 0;
+            left: 0;
+        }
+
+        .deco--bottom-right {
+            bottom: 0;
+            right: 0;
+        }
+
+        /* Первая секция (Hero Section) */
+        .hero-intro {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background-color: white;
+            padding: 20px;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .invitation-text {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-bottom: 15px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            font-weight: 400;
+            position: relative;
+            z-index: 2;
+        }
+
+        .couple-names {
+            font-size: 3rem;
+            color: var(--dark-green);
+            margin-bottom: 30px;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            letter-spacing: 1px;
+            line-height: 1.1;
+            position: relative;
+            z-index: 2;
+        }
+
+        .main-photo-container {
+            max-width: 600px;
+            width: 90%;
+            margin: 0 auto 30px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+            position: relative;
+            z-index: 2;
+        }
+
+        .main-photo {
+            width: 100%;
+            height: auto;
+            display: block;
+            max-height: 350px;
+            object-fit: cover;
+        }
 
         .intro-scroll-down {
             display: flex;
@@ -133,6 +175,8 @@
             text-decoration: none;
             font-size: 1.1rem;
             margin-top: 30px;
+            position: relative;
+            z-index: 2;
         }
 
         .intro-scroll-down i {
@@ -147,10 +191,15 @@
             60% {transform: translateY(-5px);}
         }
 
-        /* Вторая секция (Main Content) - ИЗМЕНЕНО */
+        /* Вторая секция (Main Content) */
         .main-content {
-            padding: 100px 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
             background-color: white;
+            padding: 40px 0;
+            overflow: hidden;
         }
 
         .hero-content {
@@ -158,6 +207,8 @@
             max-width: 800px;
             margin: 0 auto;
             padding: 0 20px;
+            position: relative;
+            z-index: 2;
         }
 
         .hero-subtitle {
@@ -611,6 +662,11 @@
                 min-width: 220px;
                 max-width: 250px;
             }
+            
+            .deco {
+                max-width: 280px;
+                max-height: 280px;
+            }
         }
 
         @media (max-width: 992px) {
@@ -643,6 +699,11 @@
             .detail-title {
                 font-size: 1.4rem;
             }
+            
+            .deco {
+                max-width: 220px;
+                max-height: 220px;
+            }
         }
 
         @media (max-width: 768px) {
@@ -651,11 +712,11 @@
             }
             
             .main-content {
-                padding: 80px 0;
+                padding: 40px 0;
             }
             
             .hero-intro {
-                min-height: auto;
+                min-height: 100vh;
                 padding: 60px 20px;
             }
             
@@ -715,6 +776,11 @@
                 min-width: calc(50% - 20px);
                 max-width: calc(50% - 20px);
             }
+            
+            .deco {
+                max-width: 180px;
+                max-height: 180px;
+            }
         }
 
         @media (max-width: 576px) {
@@ -772,6 +838,11 @@
             .story-content {
                 flex-direction: column;
             }
+            
+            .deco {
+                max-width: 140px;
+                max-height: 140px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -800,6 +871,22 @@
             
             .countdown-label {
                 font-size: 0.8rem;
+            }
+            
+            .main-photo {
+                max-height: 300px;
+            }
+            
+            .deco {
+                max-width: 120px;
+                max-height: 120px;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .deco {
+                max-width: 100px;
+                max-height: 100px;
             }
         }
     </style>
@@ -906,10 +993,6 @@
             .dress-type {
                 font-size: 1.1rem;
             }
-            
-            .dress-type-m {
-                font-size: 1.1rem;
-            }
         }
 
         @media (max-width: 576px) {
@@ -1003,6 +1086,14 @@
 <body>
     <!-- Первая секция: Введение с фото -->
     <section class="hero-intro" id="intro">
+        <!-- Декоративные изображения для первой секции -->
+        <div class="deco deco--bottom-left">
+            <img src="https://i.yapx.ru/cuj94.jpg" alt="" aria-hidden="true">
+        </div>
+        <div class="deco deco--top-right">
+            <img src="https://i.yapx.ru/cukDD.jpg" alt="" aria-hidden="true">
+        </div>
+        
         <div class="container">
             <p class="invitation-text" data-aos="fade-up">Приглашение на свадьбу</p>
             <h1 class="couple-names" data-aos="fade-up" data-aos-delay="200">Алексей и Линда</h1>
@@ -1021,30 +1112,40 @@
 
     <!-- Вторая секция: Основной контент -->
     <section class="main-content" id="main">
-        <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
-            <p class="hero-subtitle">Мы счастливы пригласить Вас разделить с нами радость самого важного дня в нашей жизни — нашей свадьбы, которая состоится</p>
-            <div class="wedding-date">26 июня 2026</div>
-            <h1 class="hero-title">Алексей & Линда</h1>
-            
-            <!-- Countdown Timer -->
-            <div class="countdown-container" data-aos="fade-up" data-aos-delay="300">
-                <div class="countdown-title">До нашей свадьбы осталось:</div>
-                <div class="countdown" id="countdown">
-                    <div class="countdown-item">
-                        <div class="countdown-number" id="days">00</div>
-                        <div class="countdown-label">дней</div>
-                    </div>
-                    <div class="countdown-item">
-                        <div class="countdown-number" id="hours">00</div>
-                        <div class="countdown-label">часов</div>
-                    </div>
-                    <div class="countdown-item">
-                        <div class="countdown-number" id="minutes">00</div>
-                        <div class="countdown-label">минут</div>
-                    </div>
-                    <div class="countdown-item">
-                        <div class="countdown-number" id="seconds">00</div>
-                        <div class="countdown-label">секунд</div>
+        <!-- Декоративные изображения для второй секции -->
+        <div class="deco deco--top-left">
+            <img src="https://i.yapx.ru/cvPHu.png" alt="" aria-hidden="true">
+        </div>
+        <div class="deco deco--bottom-right">
+            <img src="https://i.yapx.ru/cvPIk.png" alt="" aria-hidden="true">
+        </div>
+        
+        <div class="container">
+            <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
+                <p class="hero-subtitle">Мы счастливы пригласить Вас разделить с нами радость самого важного дня в нашей жизни — нашей свадьбы, которая состоится</p>
+                <div class="wedding-date">26 июня 2026</div>
+                <h1 class="hero-title">Алексей & Линда</h1>
+                
+                <!-- Countdown Timer -->
+                <div class="countdown-container" data-aos="fade-up" data-aos-delay="300">
+                    <div class="countdown-title">До нашей свадьбы осталось:</div>
+                    <div class="countdown" id="countdown">
+                        <div class="countdown-item">
+                            <div class="countdown-number" id="days">00</div>
+                            <div class="countdown-label">дней</div>
+                        </div>
+                        <div class="countdown-item">
+                            <div class="countdown-number" id="hours">00</div>
+                            <div class="countdown-label">часов</div>
+                        </div>
+                        <div class="countdown-item">
+                            <div class="countdown-number" id="minutes">00</div>
+                            <div class="countdown-label">минут</div>
+                        </div>
+                        <div class="countdown-item">
+                            <div class="countdown-number" id="seconds">00</div>
+                            <div class="countdown-label">секунд</div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1144,7 +1245,7 @@
                                 <i class="fas fa-check-circle"></i>
                             </div>
                         </div>
-                        <div class="dress-type-m">Платье/костюм в зеленых тонах</div>
+                        <div class="dress-type">Платье/костюм в зеленых тонах</div>
                     </div>
     
                     <div class="dress-item" data-aos="fade-left" data-aos-delay="400">
@@ -1157,7 +1258,7 @@
                                 <i class="fas fa-check-circle"></i>
                             </div>
                         </div>
-                        <div class="dress-type-m">Классический костюм/рубашка, брюки и галстук в зеленых тонах</div>
+                        <div class="dress-type">Классический костюм/рубашка, брюки и галстук в зеленых тонах</div>
                     </div>
                 </div>
             </div>
@@ -1278,29 +1379,23 @@
             this.reset();
         });
 
-        // Lazy loading for images
-        document.addEventListener("DOMContentLoaded", function() {
-            const images = document.querySelectorAll('img');
-            
-            const imageObserver = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const img = entry.target;
-                        img.src = img.dataset.src;
-                        imageObserver.unobserve(img);
-                    }
-                });
-            });
-            
-            images.forEach(img => {
-                if (img.dataset.src) {
-                    imageObserver.observe(img);
+        // Smooth scroll to section
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop,
+                        behavior: 'smooth'
+                    });
                 }
             });
         });
     </script>
 </body>
 </html>
-
-
-
