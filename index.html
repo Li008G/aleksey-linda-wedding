@@ -1413,7 +1413,7 @@
 
 		
       // Конфигурация
-const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzhXt3hm9EGl75jk957l_Wxbxqc4Zo-QuJ4-YAL4Nb21NOS2ZpOUeS3pry5tou50JG4Dg/exec'; // Замените на ваш URL
+const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycby7aEavl2zj5rybDhYYZ98BrBn9RMMHhnUgPOqbi61aoAgUqf0t5UZJiI2LF9Wb95U_fg/exec'; // Замените на ваш URL
 
 // RSVP Form Submission
 document.getElementById('rsvpForm').addEventListener('submit', async function(e) {
@@ -1433,7 +1433,8 @@ document.getElementById('rsvpForm').addEventListener('submit', async function(e)
     // Подготовить данные для отправки
     const dataToSend = {
         name: name.trim(),
-        attendance: attendance
+        attendance: attendance === 'attending' ? 'Буду' : 'Не смогу',
+        timestamp: new Date().toLocaleString('ru-RU')
     };
     
     // Показать состояние загрузки
@@ -1446,30 +1447,24 @@ document.getElementById('rsvpForm').addEventListener('submit', async function(e)
         // Отправить данные в Google Apps Script
         const response = await fetch(GOOGLE_SCRIPT_URL, {
             method: 'POST',
-            mode: 'no-cors', // Важно для Google Apps Script
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(dataToSend)
         });
         
-        // Показать сообщение об успехе
-        showSuccessMessage(name, attendance);
-        
-        // Сбросить форму
-        this.reset();
+        if (response.ok) {
+            // Показать сообщение об успехе
+            showSuccessMessage(name, attendance);
+            // Сбросить форму
+            this.reset();
+        } else {
+            throw new Error('Ошибка сервера');
+        }
         
     } catch (error) {
         console.error('Ошибка отправки:', error);
-        
-        // Попробовать альтернативный метод
-        try {
-            await sendDataAlternative(dataToSend);
-            showSuccessMessage(name, attendance);
-            this.reset();
-        } catch (altError) {
-            alert('Произошла ошибка при отправке. Пожалуйста, свяжитесь с нами напрямую.');
-        }
+        alert('Произошла ошибка при отправке. Пожалуйста, свяжитесь с нами напрямую.');
     } finally {
         // Восстановить кнопку
         submitBtn.textContent = originalText;
@@ -1574,6 +1569,7 @@ window.addEventListener('load', () => {
 </script>
 </body>
 </html>
+
 
 
 
