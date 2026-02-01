@@ -1516,10 +1516,6 @@ window.addEventListener('DOMContentLoaded', async () => {
     }
 });
 
-		function closeModal() {
-    document.getElementById('successModal').style.display = 'none';
-}
-
         // Smooth scroll to section
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -1548,13 +1544,12 @@ window.addEventListener('DOMContentLoaded', async () => {
         </button>
     </div>
 </div>
-
-<script>
+		
 // Функции для модального окна
 function showSuccessMessage(name, attendance) {
     const message = attendance === 'attending' 
-        ? `Спасибо, ${name}! Ждем вас на нашем празднике!`
-        : `Спасибо, ${name}! Очень жаль, что вы не сможете быть с нами.`;
+        ? `Спасибо! Ждем вас на нашем празднике!`
+        : `Спасибо! Очень жаль, что вы не сможете быть с нами.`;
     
     document.getElementById('successMessage').textContent = message;
     document.getElementById('successModal').style.display = 'flex';
@@ -1567,6 +1562,7 @@ function closeModal() {
 
 </body>
 </html>
+
 
 
 
