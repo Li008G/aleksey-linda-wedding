@@ -1445,6 +1445,12 @@ document.getElementById('rsvpForm').addEventListener('submit', function(e) {
   });
 });
 
+		function doGet() {
+  return ContentService
+    .createTextOutput('Этот скрипт работает только с POST-запросами')
+    .setMimeType(ContentService.MimeType.TEXT);
+}
+
         // Smooth scroll to section
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -1465,4 +1471,5 @@ document.getElementById('rsvpForm').addEventListener('submit', function(e) {
     </script>
 </body>
 </html>
+
 
