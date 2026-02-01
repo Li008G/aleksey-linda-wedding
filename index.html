@@ -1352,7 +1352,7 @@
                     <div class="contact-info">
                         <div class="contact-item">
                             <i class="fas fa-phone"></i>
-                            <span>+ 7 (953) 998-33-20</span>
+                            <span>+7 (953) 998-33-20</span>
                         </div>
                         <div class="contact-item">
                             <i class="fab fa-telegram"></i>
@@ -1365,7 +1365,7 @@
                     <div class="contact-info">
                         <div class="contact-item">
                             <i class="fas fa-phone"></i>
-                            <span>+ 7 (950) 310-30-23</span>
+                            <span>+7 (950) 310-30-23</span>
                         </div>
                         <div class="contact-item">
                             <i class="fab fa-telegram"></i>
@@ -1411,194 +1411,21 @@
         setInterval(updateCountdown, 1000);
         updateCountdown(); // Initial call
 
-		
-      // Конфигурация
-const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycby7aEavl2zj5rybDhYYZ98BrBn9RMMHhnUgPOqbi61aoAgUqf0t5UZJiI2LF9Wb95U_fg/exec'; // Замените на ваш URL
-
-// RSVP Form Submission
-document.getElementById('rsvpForm').addEventListener('submit', async function(e) {
-    e.preventDefault();
-    
-    // Получить данные формы
-    const formData = new FormData(this);
-    const name = formData.get('name');
-    const attendance = formData.get('attendance');
-    
-    // Валидация
-    if (!name || !attendance) {
-        alert('Пожалуйста, заполните все обязательные поля');
-        return;
-    }
-    
-    // Подготовить данные для отправки
-    const dataToSend = {
-        name: name.trim(),
-        attendance: attendance === 'attending' ? 'Буду' : 'Не смогу'
-    };
-    
-    console.log('📤 Отправляю данные:', dataToSend);
-    
-    // Показать состояние загрузки
-    const submitBtn = this.querySelector('.submit-btn');
-    const originalText = submitBtn.textContent;
-    submitBtn.textContent = 'Отправка...';
-    submitBtn.disabled = true;
-    
-    try {
-        // Отправить данные в Google Apps Script
-        const response = await fetch(GOOGLE_SCRIPT_URL, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(dataToSend)
-        });
-        
-        console.log('📥 Ответ получен, статус:', response.status);
-        
-        // Получаем ответ
-        const result = await response.json();
-        console.log('📊 Ответ от сервера:', result);
-        
-        if (result.success) {
-            // Показать сообщение об успехе
-            showSuccessMessage(name, attendance);
-            console.log('✅ Ответ успешно сохранен в таблице');
-            // Сбросить форму
+        // RSVP Form Submission
+        document.getElementById('rsvpForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // In a real implementation, you would send this data to a server
+            // For demo purposes, we'll just show an alert
+            const formData = new FormData(this);
+            const name = formData.get('name');
+            const attendance = formData.get('attendance');
+            
+            alert(`Спасибо, ${name}! Ваш ответ "${attendance === 'attending' ? 'Буду присутствовать' : 'Не смогу присутствовать'}" успешно отправлен.`);
+            
+            // Reset form
             this.reset();
-        } else {
-            console.error('❌ Ошибка от сервера:', result.message);
-            alert('Произошла ошибка: ' + (result.message || 'Неизвестная ошибка'));
-        }
-        
-    } catch (error) {
-        console.error('❌ Ошибка отправки:', error);
-        
-        // Пробуем альтернативный метод отправки
-        try {
-            console.log('🔄 Пробую альтернативный метод отправки...');
-            
-            // Отправляем как обычную форму
-            const formDataAlt = new FormData();
-            formDataAlt.append('name', name.trim());
-            formDataAlt.append('attendance', attendance === 'attending' ? 'Буду' : 'Не смогу');
-            
-            const altResponse = await fetch(GOOGLE_SCRIPT_URL, {
-                method: 'POST',
-                body: formDataAlt
-            });
-            
-            const altResult = await altResponse.text();
-            console.log('Альтернативный ответ:', altResult);
-            
-            try {
-                const parsedResult = JSON.parse(altResult);
-                if (parsedResult.success) {
-                    showSuccessMessage(name, attendance);
-                    this.reset();
-                    console.log('✅ Альтернативный метод успешен');
-                    return;
-                }
-            } catch (parseError) {
-                // Если не JSON, но ответ 200 - считаем успешным
-                if (altResponse.ok) {
-                    showSuccessMessage(name, attendance);
-                    this.reset();
-                    console.log('✅ Ответ получен (не JSON)');
-                    return;
-                }
-            }
-        } catch (altError) {
-            console.error('❌ Альтернативный метод тоже не сработал:', altError);
-        }
-        
-        // Сохраняем локально и показываем сообщение
-        saveToLocalStorage(name, attendance);
-        alert('✅ Ваш ответ сохранен локально. Мы также получим его через мессенджер.');
-        
-    } finally {
-        // Восстановить кнопку
-        submitBtn.textContent = originalText;
-        submitBtn.disabled = false;
-    }
-});
-
-// Функция для сохранения в localStorage
-function saveToLocalStorage(name, attendance) {
-    try {
-        const savedData = JSON.parse(localStorage.getItem('weddingRSVP') || '[]');
-        savedData.push({
-            name: name,
-            attendance: attendance,
-            timestamp: new Date().toISOString()
         });
-        localStorage.setItem('weddingRSVP', JSON.stringify(savedData));
-        console.log('💾 Данные сохранены локально:', savedData);
-        
-        // Можно также отправить уведомление на почту или в Telegram
-        sendBackupNotification(name, attendance);
-    } catch (error) {
-        console.error('❌ Ошибка сохранения в localStorage:', error);
-    }
-}
-
-// Функция для отправки уведомления (опционально)
-function sendBackupNotification(name, attendance) {
-    // Здесь можно добавить отправку на email или в Telegram
-    console.log(`🔔 Уведомление: ${name} ответил "${attendance}"`);
-}
-
-// Проверяем связь при загрузке
-window.addEventListener('load', async () => {
-    console.log('🔍 Проверяю связь с сервером...');
-    try {
-        const response = await fetch(GOOGLE_SCRIPT_URL + '?test=true');
-        const data = await response.json();
-        console.log('✅ Сервер доступен:', data.message);
-    } catch (error) {
-        console.log('⚠️ Сервер недоступен, используем локальное сохранение');
-    }
-});
-
-// Альтернативный метод отправки (через Google Forms эмуляцию)
-async function sendDataAlternative(data) {
-    // Этот метод можно использовать как запасной вариант
-    const formUrl = 'https://docs.google.com/forms/d/e/YOUR_FORM_ID/formResponse'; // Если есть Google Form
-    const params = new URLSearchParams({
-        'entry.1234567890': data.name, // Замените на реальные ID полей
-        'entry.0987654321': data.attendance === 'attending' ? 'Буду' : 'Не смогу'
-    });
-    
-    return fetch(formUrl, {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: {
-            'Content-Type': 'application/x-www-form-urlencoded'
-        },
-        body: params
-    });
-}
-
-// Функция для тестирования соединения
-async function testConnection() {
-    try {
-        const response = await fetch(GOOGLE_SCRIPT_URL.replace('/exec', '') + '/dev', {
-            method: 'GET',
-            mode: 'no-cors'
-        });
-        return true;
-    } catch (error) {
-        return false;
-    }
-}
-
-// Опционально: можно добавить проверку при загрузке страницы
-window.addEventListener('DOMContentLoaded', async () => {
-    const isConnected = await testConnection();
-    if (!isConnected) {
-        console.log('Соединение с сервером недоступно');
-    }
-});
 
         // Smooth scroll to section
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -1618,43 +1445,5 @@ window.addEventListener('DOMContentLoaded', async () => {
             });
         });
     </script>
-
-	<!-- Модальное окно успеха -->
-<div id="successModal" class="modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); justify-content: center; align-items: center; z-index: 1000;">
-    <div style="background: white; padding: 30px; border-radius: 10px; text-align: center; max-width: 400px;">
-        <h3 style="color: green;">✓ Ответ отправлен!</h3>
-        <p id="successMessage"></p>
-        <button onclick="closeModal()" style="margin-top: 20px; padding: 10px 20px; background: #4CAF50; color: white; border: none; border-radius: 5px; cursor: pointer;">
-            Закрыть
-        </button>
-    </div>
-</div>
-
-<script>
-	// Функции для модального окна
-function showSuccessMessage(name, attendance) {
-    const message = attendance === 'attending' 
-        ? `Спасибо! Ждем вас на нашем празднике!`
-        : `Спасибо, очень жаль, что вы не сможете быть с нами.`;
-    
-    document.getElementById('successMessage').textContent = message;
-    document.getElementById('successModal').style.display = 'flex';
-}
-
-function closeModal() {
-    document.getElementById('successModal').style.display = 'none';
-}
-			console.log('Скрипт загружен. URL:', GOOGLE_SCRIPT_URL);
-
-// Проверка доступности скрипта при загрузке страницы
-window.addEventListener('load', () => {
-    console.log('Проверяю доступность Google Script...');
-    fetch(GOOGLE_SCRIPT_URL, { method: 'HEAD' })
-        .then(() => console.log('✓ Google Script доступен'))
-        .catch(() => console.error('✗ Google Script недоступен'));
-});
-</script>
 </body>
 </html>
-
-
